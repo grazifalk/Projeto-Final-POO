@@ -3,9 +3,9 @@ package br.com.poo.projetofinal.contas;
 import br.com.poo.projetofinal.enums.ETipoConta;
 
 public abstract class Conta {
-	String cpf;
-	double saldo;
-	int idAgencia;
+	protected String cpf;
+	protected double saldo;
+	protected int idAgencia;
 	ETipoConta tipoConta;
 		
 	public Conta() {
