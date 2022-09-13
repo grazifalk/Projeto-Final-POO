@@ -1,5 +1,5 @@
 package br.com.poo.projetofinal.contas;
 
-public class ContaPoupanca {
+public class ContaPoupanca extends Conta {
 
 }

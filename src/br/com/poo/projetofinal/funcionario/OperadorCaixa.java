@@ -1,5 +1,5 @@
 package br.com.poo.projetofinal.funcionario;
 
-public class OperadorCaixa {
+public class OperadorCaixa extends Funcionario {
 
 }

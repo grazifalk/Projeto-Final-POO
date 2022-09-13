@@ -1,5 +1,5 @@
 package br.com.poo.projetofinal.funcionario;
 
-public class Gerente {
-
+public class Gerente extends Funcionario {
+	int idAgencia;
 }
