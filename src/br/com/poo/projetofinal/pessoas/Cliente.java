@@ -1,10 +1,12 @@
 package br.com.poo.projetofinal.pessoas;
 
+import br.com.poo.projetofinal.enums.ETipoPessoa;
+
 public class Cliente {
 	public String cpf;
 	public int senha;
 	public String nome;
-	
+	ETipoPessoa cliente = ETipoPessoa.CLIENTE;
 	
 	public Cliente(String cpf, int senha, String nome) {
 		super();
@@ -31,7 +33,7 @@ public class Cliente {
 		this.nome = nome;
 	}
 	
-	
+
 
 	
 	
