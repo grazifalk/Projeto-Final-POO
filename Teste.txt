@@ -1,4 +1,4 @@
-﻿Ao infinito e além!!!
+Ao infinito e além!!!
 
 
 Rafael esteve aqui :)
@@ -32,3 +32,5 @@ Grazi =)
 Time unido!!!!!!! 
 
 Brandão aqui.
+
+.gitignore assigned is paste. By rafa
