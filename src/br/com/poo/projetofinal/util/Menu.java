@@ -1,5 +1,5 @@
 package br.com.poo.projetofinal.util;
-
+import java.lang.Thread;
 import java.util.Scanner;
 
 public class Menu {
@@ -64,7 +64,43 @@ public class Menu {
 			//	menuInicial();
 			}
 		}
+
+		public static void apresentação(){
+
+			try{ 
+				System.out.println("************************************");
+				Thread.sleep(500);
+				System.out.println("*************   Bem Vindo  *********"); 
+				Thread.sleep(500);
+				System.out.println("***************  G4 bank  **********"); 
+				Thread.sleep(500);
+				System.out.println("************************************");
+				Thread.sleep(500);
+				System.out.println("************************************");  
+				Thread.sleep(2000);
+				limTela();  
+			}
+			catch (Exception e) {//
+					
+				// catching the exception
+				System.out.println(e);
+			}
+
+		}
+
+
+
+
+
+		public static void limTela() {
+            for (int i = 0; i<15;i++){
+                System.out.println();
+            }
+    }
+
 	}
+
+
 
 	
 

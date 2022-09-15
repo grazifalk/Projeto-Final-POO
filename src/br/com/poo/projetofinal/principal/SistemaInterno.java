@@ -7,9 +7,9 @@ import br.com.poo.projetofinal.util.MenuInterativo;
 public class SistemaInterno {
 
 	public static void main(String[] args) {
-		
+		Menu.apresentação();
 		Menu.menuInicial();
-		
+		Menu.limTela();
 	}
 
 }
