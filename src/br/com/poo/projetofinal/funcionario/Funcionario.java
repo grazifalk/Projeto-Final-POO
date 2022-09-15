@@ -1,6 +1,10 @@
 package br.com.poo.projetofinal.funcionario;
 
-public abstract class Funcionario {
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
+public abstract class Funcionario implements Comparable<Funcionario> {
 
 	protected String ETipoFuncionario;
 	protected String nome;
@@ -9,6 +13,9 @@ public abstract class Funcionario {
 	protected Integer agencia;
 	protected Integer numeroConta;
 	protected Double salario;
+	
+	public static Map<String, Funcionario> mapaFuncionarios = new HashMap<>();
+	public static TreeMap<String, Funcionario> OrdenaFuncionarios = new TreeMap<>();
 	
 	public Funcionario() {
 	}
@@ -72,4 +79,12 @@ public abstract class Funcionario {
 		return salario;
 	}
 	
+	@Override
+	public int compareTo(Funcionario outroFuncionario) {
+		return this.nome.compareTo(outroFuncionario.getNome());
+	}
+	
+	public String relatorios() {
+		return "Nome: " + this.nome + "\t CPF: " + this.cpf + "\tAgencia: " + this.agencia;
+	}
 }
