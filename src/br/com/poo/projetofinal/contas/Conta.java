@@ -1,5 +1,10 @@
 package br.com.poo.projetofinal.contas;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import br.com.poo.projetofinal.enums.ETipoMovimentacao;
+
 public abstract class Conta {
 	
 	protected String tipoConta;
@@ -7,9 +12,10 @@ public abstract class Conta {
 	protected double saldo;
 	protected int numeroConta;
 	protected int idAgencia;
+	
+	public static Map<String, Conta> mapaContas = new HashMap<>();
 
 	public Conta() {
-		super();
 	}
 	
 	public Conta(String tipoConta, String cpf, double saldo, int numeroConta, int idAgencia) {
@@ -73,5 +79,11 @@ public abstract class Conta {
 		}
 	}
 	
-	//criar método transferência
+	public boolean transferir(Double valor, Conta contaDestino ) {
+		var valorSacado = efetuarSaque(valor);
+		contaDestino.depositar(valorSacado);
+		var movimentacao = new Movimentacoes(ETipoMovimentacao.TRANSFERENCIA, valorSacado, contaDestino);
+		this.movimentacoes.add(movimentacao);
+	}
+	
 }
