@@ -1,9 +1,9 @@
-cliente;corrente;Antonio Manuel Silva;352.320.170-55;ams352;1500.00
-cliente;corrente;Hugo Marcos Freitas;059.000.815-32;hmf059;1200.00
-cliente;corrente;Clarice Tânia Gonçalves;436.599.560-07;ctg436;800.00
-cliente;corrente;Fernanda Sophia Duarte;682.143.008-00;fsd682;300.00
-cliente;corrente;Heitor Sebastião Aragão;831.720.732-38;hsa831;250.00
-cliente;poupanca;Carlos Henrique da Rocha;826.376.616-82;chr826;600.00
+cliente;corrente;Priscila de Almeida;352.320.170-55;ams352;1500.00
+cliente;corrente;Rafael Gomes;059.000.815-32;hmf059;1200.00
+cliente;corrente;Graziela Falk;436.599.560-07;ctg436;800.00
+cliente;corrente;Gabriel Brandão;682.143.008-00;fsd682;300.00
+cliente;corrente;Yuri Ramos;831.720.732-38;hsa831;15000.00
+cliente;poupanca;Maria Eduarda;826.376.616-82;chr826;600.00
 cliente;poupanca;Eduarda Lara Ferreira;861.973.433-47;elf861;800.00
 cliente;poupanca;Marcelo Diogo das Neves;723.098.739-34;mdn723;900.00
 cliente;poupanca;Sophia Luana da Costa;615.825.363-41;slc615;920.00
