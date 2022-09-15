@@ -6,6 +6,20 @@ public enum ETipoFuncionario {
 	OPERADOR_CAIXA("Operador", 3),
 	PRESIDENTE("Presidente", 4);
 
-	ETipoFuncionario(String string, int i) {
+	private final String tipoFuncionario;
+	private final int idFuncionario;
+	
+	private ETipoFuncionario(String tipoFuncionario, int idFuncionario) {
+		this.tipoFuncionario = tipoFuncionario;
+		this.idFuncionario = idFuncionario;
 	}
+
+	public String getTipoFuncionario() {
+		return tipoFuncionario;
+	}
+
+	public int getIdFuncionario() {
+		return idFuncionario;
+	}
+	
 }

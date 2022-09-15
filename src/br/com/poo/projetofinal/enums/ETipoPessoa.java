@@ -4,6 +4,20 @@ public enum ETipoPessoa {
 	CLIENTE("Cliente", 1),
 	FUNCIONARIO("Funcionario", 2);
 
-	ETipoPessoa(String string, int i) {
+	private final int idTipoPessoa;
+	private final String tipoPessoa;
+	
+	private ETipoPessoa(String tipoPessoa, int idTipoPessoa) {
+		this.idTipoPessoa = idTipoPessoa;
+		this.tipoPessoa = tipoPessoa;
 	}
+
+	public int getIdTipoPessoa() {
+		return idTipoPessoa;
+	}
+
+	public String getTipoPessoa() {
+		return tipoPessoa;
+	}
+
 }
