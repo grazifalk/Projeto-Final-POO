@@ -1,17 +1,17 @@
-cliente;corrente;Priscila de Almeida;352.320.170-55;ams352;1500.00
-cliente;corrente;Rafael Gomes;059.000.815-32;hmf059;1200.00
-cliente;corrente;Graziela Falk;436.599.560-07;ctg436;800.00
-cliente;corrente;Gabriel Brandão;682.143.008-00;fsd682;300.00
-cliente;corrente;Yuri Ramos;831.720.732-38;hsa831;15000.00
-cliente;poupanca;Maria Eduarda;826.376.616-82;chr826;600.00
-cliente;poupanca;Eduarda Lara Ferreira;861.973.433-47;elf861;800.00
-cliente;poupanca;Marcelo Diogo das Neves;723.098.739-34;mdn723;900.00
-cliente;poupanca;Sophia Luana da Costa;615.825.363-41;slc615;920.00
-cliente;poupanca;Matheus Kevin Ramos;320.603.363-25;mkr320;220.00
-gerente;Lorena Sophia Monteiro;288.100.031-28;lsm288;222;10540;5300.00;222;
-gerente;Martin Thiago de Paula;128.366.508-50;mtp128;333;20720;5800.00;333;
-gerente;Leandro Marcelo Ramos;295.654.788-75;lmr295;444;30108;4320.00;444;
-gerente;Evelyn Cecília Barros;372.270.949-01;ecr372;555;40320;6200.00;555;
-diretor;Marcelo Ramos Santos;526.278.981-16;mrs526;222;32088;22000.00;
-diretor;Carla Esteves Martins;320.603.363-25;cem320;333;52920;27000.00;
-presidente;Danilo Marques Souza;615.825.363-41;dms615;444;48070;48000.00;
+corrente;Priscila de Almeida;352.320.170-55;ams352;1500.00
+corrente;Rafael Gomes;059.000.815-32;hmf059;1200.00
+corrente;Graziela Falk;436.599.560-07;ctg436;800.00
+corrente;Gabriel Brandão;682.143.008-00;fsd682;300.00
+corrente;Yuri Ramos;831.720.732-38;hsa831;15000.00
+poupanca;Maria Eduarda;826.376.616-82;chr826;600.00
+poupanca;Eduarda Lara Ferreira;861.973.433-47;elf861;800.00
+poupanca;Marcelo Diogo das Neves;723.098.739-34;mdn723;900.00
+poupanca;Sophia Luana da Costa;615.825.363-41;slc615;920.00
+poupanca;Matheus Kevin Ramos;320.603.363-25;mkr320;220.00
+gerente;Lorena Sophia Monteiro;288.100.031-28;lsm288;222;10540;5300.00;222
+gerente;Martin Thiago de Paula;128.366.508-50;mtp128;333;20720;5800.00;333
+gerente;Leandro Marcelo Ramos;295.654.788-75;lmr295;444;30108;4320.00;444
+gerente;Evelyn Cecília Barros;372.270.949-01;ecr372;555;40320;6200.00;555
+diretor;Marcelo Ramos Santos;526.278.981-16;mrs526;222;32088;22000.00
+diretor;Carla Esteves Martins;320.603.363-25;cem320;333;52920;27000.00
+presidente;Danilo Marques Souza;615.825.363-41;dms615;444;48070;48000.00
