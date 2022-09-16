@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import br.com.poo.projetofinal.contas.ContaCorrente;
 import br.com.poo.projetofinal.enums.ETipoConta;
 
 public class LeituraEscrita {

@@ -5,7 +5,7 @@ import br.com.poo.projetofinal.util.Menu;
 public class SistemaInterno {
 
 	public static void main(String[] args) {
-		Menu.apresentação();
+		Menu.apresentacao();
 		Menu.menuInicial();
 		Menu.limTela();
 	}

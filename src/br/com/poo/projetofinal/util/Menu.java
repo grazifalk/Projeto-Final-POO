@@ -65,7 +65,7 @@ public class Menu {
 			}
 		}
 
-		public static void apresentação(){
+		public static void apresentacao(){
 
 			try{ 
 				System.out.println("************************************");

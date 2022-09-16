@@ -2,6 +2,7 @@ package br.com.poo.projetofinal.contas;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
 
 import br.com.poo.projetofinal.enums.ETipoMovimentacao;
 
@@ -12,6 +13,8 @@ public abstract class Conta {
 	protected double saldo;
 	protected int numeroConta;
 	protected int idAgencia;
+	protected ArrayList<Movimentacao> movimentacoes;
+	this.movimentacoes = new ArrayList<Movimentacao>();
 	
 	public static Map<String, Conta> mapaContas = new HashMap<>();
 
@@ -24,6 +27,9 @@ public abstract class Conta {
 		this.saldo = saldo;
 		this.numeroConta = numeroConta;
 		this.idAgencia = idAgencia;
+		this.movimentacoes = new ArrayList<Movimentacao>();
+        Movimentacao movimentacao = new Movimentacao("Abertura de contra", saldo);
+        this.movimentacoes.add(movimentacao);
 	}
 
 	public String getTipoConta() {
@@ -67,6 +73,8 @@ public abstract class Conta {
 			this.saldo = novoSaldo;
 			return true;
 		}
+		Movimentacao movimentacao= new Movimentacao("sacar", valor);
+    this.movimentacoes.add(movimentacao);
 	}
 	
 	public boolean depositar(double valor) {
@@ -75,15 +83,31 @@ public abstract class Conta {
 			return false;
 		} else {
 			this.saldo += valor;
-			return true;
 		}
+		Movimentacao movimentacao= new Movimentacao("Deposito", valor);
+        this.movimentacoes.add(movimentacao);
+		return true;
 	}
+
+	public void transferir(Double valor, Conta contaDestino){
+		//efetua um saque na conta atual
+			this.sacar(valor);
+		
+		// efetuar um deposito na conta destino
+			contaDestino.depositar(valor);
+		
+		}
 	
-	public boolean transferir(Double valor, Conta contaDestino ) {
+	/*public boolean transferir(Double valor, Conta contaDestino ) {
 		var valorSacado = efetuarSaque(valor);
 		contaDestino.depositar(valorSacado);
-		var movimentacao = new Movimentacoes(ETipoMovimentacao.TRANSFERENCIA, valorSacado, contaDestino);
+		var movimentacao = new Movimentacao(ETipoMovimentacao.TRANSFERENCIA, valorSacado, contaDestino);
 		this.movimentacoes.add(movimentacao);
+	}*/
+
+	public void imprimirExtrato() {
+		
+		
 	}
 	
 }
