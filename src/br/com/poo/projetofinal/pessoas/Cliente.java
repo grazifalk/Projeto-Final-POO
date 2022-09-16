@@ -4,18 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-import br.com.poo.projetofinal.enums.ETipoConta;
-import br.com.poo.projetofinal.enums.ETipoPessoa;
-import br.com.poo.projetofinal.funcionario.Funcionario;
-
-public abstract class Cliente implements Comparable<Cliente> {
+public class Cliente implements Comparable<Cliente> {
 	
-	ETipoPessoa cliente;
-	ETipoConta conta;
+	String cliente;
+	String conta;
 	public String nome;
 	public String cpf;
-	public int senha;
-	private double saldo;
+	public String senha;
+	private Double saldo;
 	
 	public static Map<String, Cliente> mapaClientes = new HashMap<>();
 	public static TreeMap<String, Cliente> OrdenaClientes = new TreeMap<>();
@@ -24,7 +20,7 @@ public abstract class Cliente implements Comparable<Cliente> {
 		super();
 	}
 
-	public Cliente(ETipoPessoa cliente, ETipoConta conta, String nome, String cpf, int senha, double saldo) {
+	public Cliente(String cliente, String conta, String nome, String cpf, String senha, Double saldo) {
 		super();
 		this.cliente = cliente;
 		this.conta = conta;
@@ -34,19 +30,19 @@ public abstract class Cliente implements Comparable<Cliente> {
 		this.saldo = saldo;
 	}
 
-	public ETipoPessoa getCliente() {
+	public String getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(ETipoPessoa cliente) {
+	public void setCliente(String cliente) {
 		this.cliente = cliente;
 	}
 
-	public ETipoConta getConta() {
+	public String getConta() {
 		return conta;
 	}
 
-	public void setConta(ETipoConta conta) {
+	public void setConta(String conta) {
 		this.conta = conta;
 	}
 
@@ -58,11 +54,11 @@ public abstract class Cliente implements Comparable<Cliente> {
 		this.nome = nome;
 	}
 
-	public int getSenha() {
+	public String getSenha() {
 		return senha;
 	}
 
-	public void setSenha(int senha) {
+	public void setSenha(String senha) {
 		this.senha = senha;
 	}
 
@@ -70,8 +66,13 @@ public abstract class Cliente implements Comparable<Cliente> {
 		return cpf;
 	}
 
-	public double getSaldo() {
+	public Double getSaldo() {
 		return saldo;
+	}
+
+	@Override
+	public int compareTo(Cliente o) {
+		return 0;
 	}
 	
 }

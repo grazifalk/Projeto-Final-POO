@@ -1,3 +1,4 @@
+cliente;corrente;Priscila de Almeida;352.320.170-55;34453;1500.00
 corrente;Priscila de Almeida;352.320.170-55;34453;1500.00;11111;222
 corrente;Rafael Gomes;059.000.815-32;123059;1200.00;22222;333
 corrente;Graziela Falk;436.599.560-07;567436;800.00;33333;444

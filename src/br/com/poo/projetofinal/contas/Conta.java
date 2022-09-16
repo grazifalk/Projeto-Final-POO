@@ -10,8 +10,8 @@ public abstract class Conta {
 	protected String tipoConta;
 	protected String nome;
 	protected String cpf;
-	protected Integer senha;
-	protected double saldo;
+	protected String senha;
+	protected Double saldo;
 	protected Integer numeroConta;
 	protected Integer idAgencia;
 	protected ArrayList<Movimentacao> movimentacoes;
@@ -26,7 +26,7 @@ public abstract class Conta {
 		
 	}
 
-	public Conta(String tipoConta, String nome, String cpf, Integer senha, double saldo, Integer numeroConta,
+	public Conta(String tipoConta, String nome, String cpf, String senha, Double saldo, Integer numeroConta,
 			Integer idAgencia, ArrayList<Movimentacao> movimentacoes) {
 		super();
 		this.tipoConta = tipoConta;
@@ -50,7 +50,7 @@ public abstract class Conta {
 		this.tipoConta = tipoConta;
 	}
 
-	public int getNumeroConta() {
+	public Integer getNumeroConta() {
 		return numeroConta;
 	}
 
@@ -58,7 +58,7 @@ public abstract class Conta {
 		this.numeroConta = numeroConta;
 	}
 
-	public int getIdAgencia() {
+	public Integer getIdAgencia() {
 		return idAgencia;
 	}
 

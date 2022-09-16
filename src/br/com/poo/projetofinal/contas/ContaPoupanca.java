@@ -13,7 +13,7 @@ public class ContaPoupanca extends Conta {
 		
 	}
 
-	public ContaPoupanca(String tipoConta, String nome, String cpf, Integer senha, double saldo, Integer numeroConta,
+	public ContaPoupanca(String tipoConta, String nome, String cpf, String senha, Double saldo, Integer numeroConta,
 			Integer idAgencia, ArrayList<Movimentacao> movimentacoes) {
 		super(tipoConta, nome, cpf, senha, saldo, numeroConta, idAgencia, movimentacoes);
 		

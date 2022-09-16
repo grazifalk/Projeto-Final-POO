@@ -2,12 +2,8 @@ package br.com.poo.projetofinal.principal;
 
 import java.io.IOException;
 
-import br.com.poo.projetofinal.util.Menu;
 import br.com.poo.projetofinal.util.MenuPrincipal;
 import br.com.projetofinal.IO.LeituraEscrita;
-
-
-
 
 public class SistemaInterno {
 

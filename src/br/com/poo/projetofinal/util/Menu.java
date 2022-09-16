@@ -1,8 +1,5 @@
 package br.com.poo.projetofinal.util;
-import java.lang.Thread;
 import java.util.Scanner;
-
-
 
 public class Menu {
 	static Scanner sc = new Scanner(System.in);

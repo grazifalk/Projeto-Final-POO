@@ -33,34 +33,21 @@ public class Principal {
                 Funcionario funcionario = (Funcionario) Funcionario.mapaFuncionarios.get(inputCpf);
                 Cliente cliente = (Cliente) Cliente.mapaClientes.get(inputCpf);
                 Conta conta = (Conta) Conta.mapaContas.get(inputCpf);
-    
-                while (funcionario == null || !(funcionario.getSenha().equals(inputSenha))) {
+                                 
+                while ((funcionario == null || !(funcionario.getSenha().equals(inputSenha))) || (cliente == null || !(cliente.getSenha() != (inputSenha)))) {
                     System.out.println("CPF e/ou Senha incorreto(s)\n\n");
                     System.out.print("Digite seu CPF: ");
                     inputCpf = sc.next();
                     System.out.print("Digite sua senha: ");
                     inputSenha = sc.next();
                     funcionario = (Funcionario) Funcionario.mapaFuncionarios.get(inputCpf);
-                    conta = (Conta) Conta.mapaContas.get(inputCpf);
-                    
-                    
+                    conta = (Conta) Conta.mapaContas.get(inputCpf);                 
                     }
                 
-              /*  else (cliente == null || !(cliente.getSenha().equals(inputSenha)))  {
-                    System.out.println("CPF e/ou Senha incorreto(s)\n\n");
-                    System.out.print("Digite seu CPF: ");
-                    inputCpf = sc.next();
-                    System.out.print("Digite sua senha: ");
-                    inputSenha = sc.next();
-                    cliente = (Cliente) Cliente.mapaClientes.get(inputCpf);
-                    conta = (Conta) Conta.mapaContas.get(inputCpf);
-                } 
-                */
-    
                 subMenu(funcionario, conta);
                 imprimeLinhaHorizontal();
-    
-            } catch (Exception e) {
+                                   
+                } catch (Exception e) {
                 System.out.println(e.getMessage());
             } finally {
                 menuInterativo();
