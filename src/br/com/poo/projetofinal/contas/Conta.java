@@ -8,21 +8,31 @@ import java.util.InputMismatchException;
 public abstract class Conta {
 	
 	protected String tipoConta;
+	protected String nome;
 	protected String cpf;
+	protected Integer senha;
 	protected double saldo;
-	protected int numeroConta;
-	protected int idAgencia;
+	protected Integer numeroConta;
+	protected Integer idAgencia;
 	protected ArrayList<Movimentacao> movimentacoes;
 	
 	
 	public static Map<String, Conta> mapaContas = new HashMap<>();
 
+
+
 	public Conta() {
+		super();
+		
 	}
-	
-	public Conta(String tipoConta, String cpf, double saldo, int numeroConta, int idAgencia) {
+
+	public Conta(String tipoConta, String nome, String cpf, Integer senha, double saldo, Integer numeroConta,
+			Integer idAgencia, ArrayList<Movimentacao> movimentacoes) {
+		super();
 		this.tipoConta = tipoConta;
+		this.nome = nome;
 		this.cpf = cpf;
+		this.senha = senha;
 		this.saldo = saldo;
 		this.numeroConta = numeroConta;
 		this.idAgencia = idAgencia;
@@ -30,7 +40,8 @@ public abstract class Conta {
         Movimentacao movimentacao = new Movimentacao("Abertura de contra", saldo);
         this.movimentacoes.add(movimentacao);
 	}
-
+	
+	
 	public String getTipoConta() {
 		return tipoConta;
 	}
@@ -43,7 +54,7 @@ public abstract class Conta {
 		return numeroConta;
 	}
 
-	public void setNumeroConta(int numeroConta) {
+	public void setNumeroConta(Integer numeroConta) {
 		this.numeroConta = numeroConta;
 	}
 
@@ -51,7 +62,7 @@ public abstract class Conta {
 		return idAgencia;
 	}
 
-	public void setIdAgencia(int idAgencia) {
+	public void setIdAgencia(Integer idAgencia) {
 		this.idAgencia = idAgencia;
 	}
 
