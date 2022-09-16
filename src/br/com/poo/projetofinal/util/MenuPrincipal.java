@@ -47,11 +47,11 @@ public class MenuPrincipal {
 			//	LeituraEscrita.comprovanteSaldo(conta);
 				break;
 			case 5:
-			/* 	if (funcionario.getTipoFuncionario().equalsIgnoreCase(PessoaEnum.GERENTE.getTipoPessoa())) {
-					MenuRelatorio.menuRelatorio(PessoaEnum.GERENTE.getIdTipoPessoa(), funcionario, conta);
-				} else if (funcionario.getTipoFuncionario().equalsIgnoreCase(PessoaEnum.DIRETOR.getTipoPessoa())) {
-					MenuRelatorio.menuRelatorio(PessoaEnum.DIRETOR.getIdTipoPessoa(), funcionario, conta);
-				}*/
+			 //	if (funcionario.getTipoFuncionario().equalsIgnoreCase(PessoaEnum.GERENTE.getTipoPessoa())) {
+				//	MenuRelatorio.menuRelatorio(PessoaEnum.GERENTE.getIdTipoPessoa(), funcionario, conta);
+			//	} else if (funcionario.getTipoFuncionario().equalsIgnoreCase(PessoaEnum.DIRETOR.getTipoPessoa())) {
+			//		MenuRelatorio.menuRelatorio(PessoaEnum.DIRETOR.getIdTipoPessoa(), funcionario, conta);
+			//	}
 				break;
 			case 6:
 				principal.menuInterativo();

@@ -1,15 +1,24 @@
 package br.com.poo.projetofinal.pessoas;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
 import br.com.poo.projetofinal.enums.ETipoConta;
 import br.com.poo.projetofinal.enums.ETipoPessoa;
+import br.com.poo.projetofinal.funcionario.Funcionario;
 
-public class Cliente {
+public abstract class Cliente implements Comparable<Cliente> {
+	
 	ETipoPessoa cliente;
 	ETipoConta conta;
 	public String nome;
 	public String cpf;
 	public int senha;
 	private double saldo;
+	
+	public static Map<String, Cliente> mapaClientes = new HashMap<>();
+	public static TreeMap<String, Cliente> OrdenaClientes = new TreeMap<>();
 	
 	public Cliente() {
 		super();

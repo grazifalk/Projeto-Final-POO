@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import br.com.poo.projetofinal.contas.Conta;
 import br.com.poo.projetofinal.contas.ContaCorrente;
+import br.com.poo.projetofinal.contas.ContaPoupanca;
 import br.com.poo.projetofinal.enums.ETipoConta;
 import br.com.poo.projetofinal.enums.ETipoFuncionario;
 import br.com.poo.projetofinal.funcionario.Diretor;
@@ -45,11 +46,17 @@ public class LeituraEscrita {
 					Funcionario.mapaFuncionarios.put(dados[2], presidente);
 					Funcionario.OrdenaFuncionarios.put(dados[1], presidente);
 					
-			//	} else if (dados[0].equalsIgnoreCase(ETipoConta.CORRENTE.getTipoConta())) {
-			//		ContaCorrente cc = new ContaCorrente(dados[0], dados[1],
-			//				dados[2], Integer.parseInt(dados[3]), Double.parseDouble(dados[4]), Integer.parseInt(dados[5]),
-			//				Integer.parseInt(dados[6]));
-			//		Conta.mapaContas.put(dados[5], cc);	
+				} else if (dados[0].equalsIgnoreCase(ETipoConta.POUPANCA.getTipoConta())) {
+					ContaPoupanca cc = new ContaPoupanca(dados[0], dados[1],
+							dados[2], Integer.parseInt(dados[3]), Double.parseDouble(dados[4]), Integer.parseInt(dados[5]),
+							Integer.parseInt(dados[6]), null);
+					Conta.mapaContas.put(dados[5], cc);	
+					
+				} else if (dados[0].equalsIgnoreCase(ETipoConta.CORRENTE.getTipoConta())) {
+					ContaCorrente cc = new ContaCorrente(dados[0], dados[1],
+							dados[2], Integer.parseInt(dados[3]), Double.parseDouble(dados[4]), Integer.parseInt(dados[5]),
+							Integer.parseInt(dados[6]), null);
+					Conta.mapaContas.put(dados[5], cc);	
 				}
 				
 					

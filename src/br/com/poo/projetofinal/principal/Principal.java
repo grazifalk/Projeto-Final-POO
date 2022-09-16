@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import br.com.poo.projetofinal.contas.Conta;
 import br.com.poo.projetofinal.funcionario.Funcionario;
+import br.com.poo.projetofinal.pessoas.Cliente;
 import br.com.poo.projetofinal.util.MenuPrincipal;
 public class Principal {
     
@@ -30,6 +31,7 @@ public class Principal {
                 System.out.print("Digite sua senha: ");
                 inputSenha = sc.next();
                 Funcionario funcionario = (Funcionario) Funcionario.mapaFuncionarios.get(inputCpf);
+                Cliente cliente = (Cliente) Cliente.mapaClientes.get(inputCpf);
                 Conta conta = (Conta) Conta.mapaContas.get(inputCpf);
     
                 while (funcionario == null || !(funcionario.getSenha().equals(inputSenha))) {
@@ -40,7 +42,20 @@ public class Principal {
                     inputSenha = sc.next();
                     funcionario = (Funcionario) Funcionario.mapaFuncionarios.get(inputCpf);
                     conta = (Conta) Conta.mapaContas.get(inputCpf);
-                }
+                    
+                    
+                    }
+                
+              /*  else (cliente == null || !(cliente.getSenha().equals(inputSenha)))  {
+                    System.out.println("CPF e/ou Senha incorreto(s)\n\n");
+                    System.out.print("Digite seu CPF: ");
+                    inputCpf = sc.next();
+                    System.out.print("Digite sua senha: ");
+                    inputSenha = sc.next();
+                    cliente = (Cliente) Cliente.mapaClientes.get(inputCpf);
+                    conta = (Conta) Conta.mapaContas.get(inputCpf);
+                } 
+                */
     
                 subMenu(funcionario, conta);
                 imprimeLinhaHorizontal();
