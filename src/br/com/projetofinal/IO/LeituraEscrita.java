@@ -11,6 +11,7 @@ import br.com.poo.projetofinal.enums.ETipoFuncionario;
 import br.com.poo.projetofinal.funcionario.Diretor;
 import br.com.poo.projetofinal.funcionario.Funcionario;
 import br.com.poo.projetofinal.funcionario.Gerente;
+import br.com.poo.projetofinal.funcionario.Presidente;
 
 public class LeituraEscrita {
 
@@ -37,8 +38,14 @@ public class LeituraEscrita {
 							Integer.parseInt(dados[5]), Double.parseDouble(dados[6]));
 					Funcionario.mapaFuncionarios.put(dados[2], diretor);
 					Funcionario.OrdenaFuncionarios.put(dados[1], diretor);
+					
+				} else if (dados[0].equalsIgnoreCase(ETipoFuncionario.PRESIDENTE.getTipoFuncionario())) {
+					Presidente presidente = new Presidente(dados[0], dados[1], dados[2], dados[3], Integer.parseInt(dados[4]),
+							Integer.parseInt(dados[5]), Double.parseDouble(dados[6]));
+					Funcionario.mapaFuncionarios.put(dados[2], presidente);
+					Funcionario.OrdenaFuncionarios.put(dados[1], presidente);
 				}
-				
+					
 			} else {
 				break;
 			}
