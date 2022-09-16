@@ -1,5 +1,7 @@
 package br.com.poo.projetofinal.contas;
 
+import java.util.Date;
+
 import br.com.poo.projetofinal.util.DataUtil;
 
 public class ContaPoupanca extends Conta {

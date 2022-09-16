@@ -3,8 +3,7 @@ package br.com.poo.projetofinal.contas;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
-
-import br.com.poo.projetofinal.enums.ETipoMovimentacao;
+import java.util.InputMismatchException;
 
 public abstract class Conta {
 	
@@ -14,7 +13,7 @@ public abstract class Conta {
 	protected int numeroConta;
 	protected int idAgencia;
 	protected ArrayList<Movimentacao> movimentacoes;
-	this.movimentacoes = new ArrayList<Movimentacao>();
+	
 	
 	public static Map<String, Conta> mapaContas = new HashMap<>();
 
@@ -63,8 +62,8 @@ public abstract class Conta {
 	public double getSaldo() {
 		return saldo;
 	}
-
-	public boolean sacar(double valor) {
+//testando sem boolean 
+	/*public boolean sacar(double valor) {
 		if (this.saldo < valor) {
 			System.out.println("Saldo insuficiente!");
 			return false;
@@ -75,9 +74,39 @@ public abstract class Conta {
 		}
 		Movimentacao movimentacao= new Movimentacao("sacar", valor);
     this.movimentacoes.add(movimentacao);
-	}
+	}*/
+
+	public Double sacar(Double valor){
+    
+		// verifica se o saldo é menor que o valor retirado
+		if(valor>this.saldo){
+			// caso seja menor tras a execessão abaixo throw new
+			throw new InputMismatchException("Saque indisponivel, por não ter valor em conta!!");
+		}else{
+			// caso a operação seja valida da o resultado da operação e traz o valor novamente
+			this.saldo -=valor;
+			
+		}
+			Movimentacao movimentacao= new Movimentacao("sacar", valor);
+			this.movimentacoes.add(movimentacao);
 	
-	public boolean depositar(double valor) {
+			return valor;
+			
+	
+	}
+	public void depositar(Double valor){
+		if(valor<0){
+			
+			this.saldo += valor;
+		}else{
+			throw new InputMismatchException("valor de deposito é muito baixo!! ");
+		}
+		// extrato
+		Movimentacao movimentacao= new Movimentacao("Deposito", valor);
+		this.movimentacoes.add(movimentacao);
+	}
+	//testando sem boolean 
+	/*public boolean depositar(double valor) {
 		if (valor < 0) {
 			System.out.println("Valor inválido!");
 			return false;
@@ -87,7 +116,7 @@ public abstract class Conta {
 		Movimentacao movimentacao= new Movimentacao("Deposito", valor);
         this.movimentacoes.add(movimentacao);
 		return true;
-	}
+	}*/
 
 	public void transferir(Double valor, Conta contaDestino){
 		//efetua um saque na conta atual
