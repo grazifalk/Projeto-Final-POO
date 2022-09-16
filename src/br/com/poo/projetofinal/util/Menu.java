@@ -2,9 +2,11 @@ package br.com.poo.projetofinal.util;
 import java.lang.Thread;
 import java.util.Scanner;
 
+
+
 public class Menu {
 	static Scanner sc = new Scanner(System.in);
-
+/* 
 	public static void menuInicial() {
 		int opcao;
 		System.out.println("Bem vindo ao G4 Bank!");
@@ -38,9 +40,9 @@ public class Menu {
 			System.out.println("Informe sua senha: ");
 			senha = sc.next();
 			
-			if(cpf.equals("12345") && senha.equals("1234")) {
+		 	if(cpf.equals("12345") && senha.equals("1234")) {
 				System.out.println("Bem vindo, Cliente!");
-				MenuInterativo.menuCliente();
+			//	menuInterativo.menuCliente();
 				return true;
 			} else if (cpf.equals("123456") && senha.equals("1234")) {
 				System.out.println("Bem vindo, Gerente!");
@@ -63,7 +65,7 @@ public class Menu {
 				return false;
 			//	menuInicial();
 			}
-		}
+		
 
 		public static void apresentacao(){
 
@@ -97,7 +99,7 @@ public class Menu {
                 System.out.println();
             }
     }
-
+*/
 	}
 
 
