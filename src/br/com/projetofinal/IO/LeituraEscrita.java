@@ -78,7 +78,7 @@ public class LeituraEscrita {
 	    String arq = conta.getNome() + "_Comprovante_Saque";
 	    try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + arq + EXTENSAO, true));) {
 
-	      String linha = "============ saque ============";
+	      String linha = "********** Saque **********";
 	      buffWrite.append(linha + "\n");
 
 	      linha = "Nome: " + conta.getNome();
@@ -96,7 +96,79 @@ public class LeituraEscrita {
 	      linha = DataUtil.data();
 	      buffWrite.append(linha + "\n");
 
-	      linha = "============= fim do saque =============";
+	      linha = "********** Fim do Saque **********";
+	      buffWrite.append(linha + "\n");
+
+	      buffWrite.close();
+
+	    } catch (IOException e) {
+	      e.printStackTrace();
+	    } catch (Exception e) {
+	      e.printStackTrace();
+	    }
+
+	  }
+	
+	public static void comprovanteDeposito(Conta conta, double Valor) throws IOException {
+
+	    String arq = conta.getNome() + "_Comprovante_Deposito";
+	    try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + arq + EXTENSAO, true));) {
+
+	      String linha = "********** Depósito **********";
+	      buffWrite.append(linha + "\n");
+
+	      linha = "Nome: " + conta.getNome();
+	      buffWrite.append(linha + "\n");
+
+	      linha = "Agencia: " + conta.getIdAgencia();
+	      buffWrite.append(linha + "\n");
+	      
+	      linha = "Numero da Conta: " + conta.getNumeroConta();
+	      buffWrite.append(linha + "\n");
+
+	      linha = "Valor: R$ " + Valor;
+	      buffWrite.append(linha + "\n");
+
+	      linha = DataUtil.data();
+	      buffWrite.append(linha + "\n");
+
+	      linha = "********** Fim do Depósito **********";
+	      buffWrite.append(linha + "\n");
+
+	      buffWrite.close();
+
+	    } catch (IOException e) {
+	      e.printStackTrace();
+	    } catch (Exception e) {
+	      e.printStackTrace();
+	    }
+
+	  }
+	
+	public static void comprovanteTransferencia(Conta conta, double Valor) throws IOException {
+
+	    String arq = conta.getNome() + "_Comprovante_Transferencia";
+	    try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + arq + EXTENSAO, true));) {
+
+	      String linha = "********** Transferência **********";
+	      buffWrite.append(linha + "\n");
+
+	      linha = "Nome: " + conta.getNome();
+	      buffWrite.append(linha + "\n");
+
+	      linha = "Agencia: " + conta.getIdAgencia();
+	      buffWrite.append(linha + "\n");
+	      
+	      linha = "Numero da Conta: " + conta.getNumeroConta();
+	      buffWrite.append(linha + "\n");
+
+	      linha = "Valor: R$ " + Valor;
+	      buffWrite.append(linha + "\n");
+
+	      linha = DataUtil.data();
+	      buffWrite.append(linha + "\n");
+
+	      linha = "********** Fim da Transferência **********";
 	      buffWrite.append(linha + "\n");
 
 	      buffWrite.close();

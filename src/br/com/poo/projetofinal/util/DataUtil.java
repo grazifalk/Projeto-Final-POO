@@ -33,7 +33,7 @@ public class DataUtil {
 	
 	public static String data() {
         LocalDateTime data = LocalDateTime.now();
-        DateTimeFormatter formatada = DateTimeFormatter.ofPattern("dd/MM/yyyy 'as' hh:mm:ss a");
+        DateTimeFormatter formatada = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss");
         String dataFormatada = data.format(formatada);
         return dataFormatada;
     }
