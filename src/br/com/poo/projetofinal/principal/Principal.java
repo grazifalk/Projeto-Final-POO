@@ -101,9 +101,9 @@ public class Principal {
 		}
 		MenuPrincipal.menuCliente(cliente, conta);
 	}
-	
+
 	public static void iniciarLeituraFuncionario() throws IOException {
 		LeituraEscrita.leitor("dados.txt");
 	}
-	
+
 }

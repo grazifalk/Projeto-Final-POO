@@ -64,17 +64,18 @@ public class ContaCorrente extends Conta {
 				System.out.println("Saque efetuado com sucesso!");
 				++totalSaques;
 			}
-			Movimentacao movimentacao = new Movimentacao("Retirada: R$ " + valor + " - Taxa de R$ " + Taxas.SAQUE, valorTaxado);
+			Movimentacao movimentacao = new Movimentacao("Retirada: R$ " + valor + " - Taxa de R$ " + Taxas.SAQUE,
+					valorTaxado);
 			this.movimentacoes.add(movimentacao);
 
-			}
+		}
 	}
 
 	@Override
 	public Double taxarSaque(Double valor) {
 		return valor + Taxas.SAQUE;
 	}
-	
+
 	@Override
 	public void depositar(Double valor) {
 		if (valor < 0) {
@@ -87,7 +88,8 @@ public class ContaCorrente extends Conta {
 				System.out.println("Depósito efetuado com sucesso!");
 				++totalDepositos;
 			}
-			Movimentacao movimentacao = new Movimentacao("Depósito: R$ " + valor + " - Taxa de R$ " + Taxas.DEPOSITO, valorTaxado);
+			Movimentacao movimentacao = new Movimentacao("Depósito: R$ " + valor + " - Taxa de R$ " + Taxas.DEPOSITO,
+					valorTaxado);
 			this.movimentacoes.add(movimentacao);
 
 		}
@@ -97,7 +99,7 @@ public class ContaCorrente extends Conta {
 	public Double taxarDeposito(Double valor) {
 		return valor - Taxas.DEPOSITO;
 	}
-	
+
 	@Override
 	public void transferir(Double valor, Conta contaDestino) {
 		if (valor > this.saldo) {
@@ -110,19 +112,19 @@ public class ContaCorrente extends Conta {
 				this.totalTributado += Taxas.TRANSFERENCIA;
 				System.out.println("Transferência efetuado com sucesso!");
 				++totalTransferencias;
-				
+
 			}
-			Movimentacao movimentacao = new Movimentacao("Transferência: R$ " + valor + " - Taxa de R$ " + Taxas.TRANSFERENCIA, valorTaxado);
+			Movimentacao movimentacao = new Movimentacao(
+					"Transferência: R$ " + valor + " - Taxa de R$ " + Taxas.TRANSFERENCIA, valorTaxado);
 			this.movimentacoes.add(movimentacao);
-					}
+		}
 	}
-	
+
 	@Override
 	public Double taxarTransferencia(Double valor) {
 		return valor + Taxas.TRANSFERENCIA;
 	}
-	
-	
+
 //	@Override
 //	public void transferir(Conta contaDestino, Double valor) {
 //		if (valor > this.saldo) {

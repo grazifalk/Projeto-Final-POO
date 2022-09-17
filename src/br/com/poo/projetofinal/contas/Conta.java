@@ -3,8 +3,6 @@ package br.com.poo.projetofinal.contas;
 import java.util.HashMap;
 import java.util.Map;
 
-import br.com.poo.projetofinal.enums.ETipoMovimentacao;
-
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
@@ -40,7 +38,7 @@ public abstract class Conta {
 		Movimentacao movimentacao = new Movimentacao("Abertura de conta", saldo);
 		this.movimentacoes.add(movimentacao);
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -72,7 +70,7 @@ public abstract class Conta {
 	public String getCpf() {
 		return cpf;
 	}
-	
+
 	public void setSaldo(Double saldo) {
 		this.saldo = saldo;
 	}
@@ -80,7 +78,7 @@ public abstract class Conta {
 	public double getSaldo() {
 		return saldo;
 	}
-	
+
 //	public void saldo(Double valor) {
 //
 //		if (this.saldo > 0) {
@@ -92,7 +90,7 @@ public abstract class Conta {
 //		this.movimentacoes.add(movimentacao);
 //
 //	}
-	
+
 	public void sacar(Double valor) {
 
 		// verifica se o saldo é menor que o valor retirado
@@ -123,7 +121,7 @@ public abstract class Conta {
 		this.movimentacoes.add(movimentacao);
 
 	}
-	
+
 	public void transferir(Double valor, Conta contaDestino) {
 		if (valor > this.saldo) {
 			throw new InputMismatchException("Saque indisponível, valor insuficiente!\n");
@@ -135,7 +133,7 @@ public abstract class Conta {
 		}
 		Movimentacao movimentacao = new Movimentacao("Transferência: ", valor);
 		this.movimentacoes.add(movimentacao);
-		
+
 	}
 
 //	public void transferir(Double valor, Conta contaDestino) {
@@ -145,7 +143,7 @@ public abstract class Conta {
 //	this.movimentacoes.add(movimentacao);
 //}
 
-	public void imprimirExtrato() {			
+	public void imprimirExtrato() {
 	}
 
 	public Double taxarSaque(Double valor) {
@@ -159,7 +157,7 @@ public abstract class Conta {
 	public Double taxarTransferencia(Double valor) {
 		return null;
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

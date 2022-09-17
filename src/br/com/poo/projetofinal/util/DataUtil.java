@@ -30,12 +30,12 @@ public class DataUtil {
 		return formatador.format(data);
 
 	}
-	
+
 	public static String data() {
-        LocalDateTime data = LocalDateTime.now();
-        DateTimeFormatter formatada = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss");
-        String dataFormatada = data.format(formatada);
-        return dataFormatada;
-    }
+		LocalDateTime data = LocalDateTime.now();
+		DateTimeFormatter formatada = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss");
+		String dataFormatada = data.format(formatada);
+		return dataFormatada;
+	}
 
 }
