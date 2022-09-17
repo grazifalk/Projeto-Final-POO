@@ -7,6 +7,7 @@ import br.com.poo.projetofinal.contas.Conta;
 import br.com.poo.projetofinal.funcionario.Funcionario;
 import br.com.poo.projetofinal.pessoas.Cliente;
 import br.com.poo.projetofinal.util.MenuPrincipal;
+import br.com.projetofinal.IO.LeituraEscrita;
 
 public class Principal {
 
@@ -100,5 +101,9 @@ public class Principal {
 		}
 		MenuPrincipal.menuCliente(cliente, conta);
 	}
-
+	
+	public static void iniciarLeituraFuncionario() throws IOException {
+		LeituraEscrita.leitor("dados.txt");
+	}
+	
 }

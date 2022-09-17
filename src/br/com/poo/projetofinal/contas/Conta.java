@@ -72,11 +72,27 @@ public abstract class Conta {
 	public String getCpf() {
 		return cpf;
 	}
+	
+	public void setSaldo(Double saldo) {
+		this.saldo = saldo;
+	}
 
 	public double getSaldo() {
 		return saldo;
 	}
-
+	
+//	public void saldo(Double valor) {
+//
+//		if (this.saldo > 0) {
+//			System.out.printf("Seu saldo é: R$%.2f" + this.saldo);
+//			} else if (this.saldo < 0) {
+//				System.out.printf("Seu saldo é: R$%.2f", Conta.getSaldo());
+//			}
+//		Movimentacao movimentacao = new Movimentacao("Saldo: ", valor);
+//		this.movimentacoes.add(movimentacao);
+//
+//	}
+	
 	public void sacar(Double valor) {
 
 		// verifica se o saldo é menor que o valor retirado
@@ -111,10 +127,9 @@ public abstract class Conta {
 	public void transferir(Double valor, Conta contaDestino) {
 		if (valor > this.saldo) {
 			throw new InputMismatchException("Saque indisponível, valor insuficiente!\n");
-		} else {
+		} else if (valor > 0) {
 			this.saldo -= valor;
-		} if (valor > 0) {
-			this.saldo += valor;
+			System.out.println("\nTransferência realizada com sucesso!\n");
 		} else {
 			throw new InputMismatchException("Valor inválido!");
 		}

@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 // import br.com.poo.modelo.enums.PessoaEnum;
 import br.com.poo.projetofinal.contas.Conta;
+import br.com.poo.projetofinal.contas.Movimentacao;
 import br.com.poo.projetofinal.funcionario.Funcionario;
 import br.com.poo.projetofinal.pessoas.Cliente;
 import br.com.poo.projetofinal.principal.Principal;
@@ -62,7 +63,7 @@ public class MenuPrincipal {
 				System.out.printf("Seu saldo é: R$%.2f", conta.getSaldo());
 				System.out.println();
 				System.out.println();
-				//LeituraEscrita.comprovanteSaldo(conta);
+				//LeituraEscrita.extratoSaldo(conta, inputValor);
 				break;
 			case "5":
 //				 if
@@ -159,4 +160,5 @@ public class MenuPrincipal {
 			System.out.println();
 		}
 	}
+	
 }
