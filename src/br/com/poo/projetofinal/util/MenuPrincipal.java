@@ -37,14 +37,15 @@ public class MenuPrincipal {
 				Principal.imprimeLinhaHorizontal();
 				System.out.print("Digite o valor que deseja sacar: ");
 				inputValor = Double.parseDouble(Principal.sc.next());
-				LeituraEscrita.comprovanteSaque(conta, inputValor);
 				conta.sacar(inputValor);
+				LeituraEscrita.comprovanteSaque(conta, inputValor);
 				break;
 			case "2":
 				Principal.imprimeLinhaHorizontal();
 				System.out.print("Digite o valor que deseja depositar: ");
 				inputValor = Double.parseDouble(Principal.sc.next());
 				conta.depositar(inputValor);
+				LeituraEscrita.comprovanteDeposito(conta, inputValor);
 				break;
 			case "3":
 				Principal.imprimeLinhaHorizontal();
@@ -54,13 +55,14 @@ public class MenuPrincipal {
 				inputValor = Double.parseDouble(Principal.sc.next());
 				Conta contaDestino = (Conta) Conta.mapaContas.get(cpf);
 				conta.transferir(inputValor, contaDestino);
+				LeituraEscrita.comprovanteTransferencia(conta, inputValor);
 				break;
 			case "4":
 				System.out.println();
 				System.out.printf("Seu saldo é: R$%.2f", conta.getSaldo());
 				System.out.println();
 				System.out.println();
-				// LeituraEscrita.comprovanteSaldo(conta);
+				//LeituraEscrita.comprovanteSaldo(conta);
 				break;
 			case "5":
 //				 if
