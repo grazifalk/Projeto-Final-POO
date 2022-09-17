@@ -5,17 +5,17 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Cliente implements Comparable<Cliente> {
-	
+
 	String cliente;
 	String conta;
 	public String nome;
 	public String cpf;
 	public String senha;
 	private Double saldo;
-	
+
 	public static Map<String, Cliente> mapaClientes = new HashMap<>();
 	public static TreeMap<String, Cliente> OrdenaClientes = new TreeMap<>();
-	
+
 	public Cliente() {
 		super();
 	}
@@ -74,5 +74,5 @@ public class Cliente implements Comparable<Cliente> {
 	public int compareTo(Cliente o) {
 		return 0;
 	}
-	
+
 }

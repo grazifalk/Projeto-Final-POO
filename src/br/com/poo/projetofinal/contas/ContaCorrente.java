@@ -9,20 +9,17 @@ public class ContaCorrente extends Conta {
 
 	private Integer totalSaques = 0;
 	private Double totalTributado = 0.0;
-	
 
 	public ContaCorrente() {
 		super();
-		
-	}
 
+	}
 
 	public ContaCorrente(String tipoConta, String nome, String cpf, String senha, Double saldo, Integer numeroConta,
 			Integer idAgencia, ArrayList<Movimentacao> movimentacoes) {
 		super(tipoConta, nome, cpf, senha, saldo, numeroConta, idAgencia, movimentacoes);
-		
-	}
 
+	}
 
 	public ContaCorrente(Integer totalSaques, Double totalTributado) {
 		super();
@@ -30,22 +27,21 @@ public class ContaCorrente extends Conta {
 		this.totalTributado = totalTributado;
 	}
 
-
 	@Override
 	public void imprimirExtrato() {
-		
+
 		System.out.println();
 		System.out.println("************************************************");
-		System.out.println("**************  Extrato Bancario ***************");
+		System.out.println("**************  Extrato Bancario  **************");
 		System.out.println("************************************************");
 		System.out.println();
 		System.out.println("      gerado em : " + DataUtil.converterDateParaDataEHora(new Date()));
 		System.out.println();
-	
-		// para cada movimentação dentro de movimentações fará
+
+		// para cada movimentacao dentro de movimentacoes fara
 		for (Movimentacao movimentacao : this.movimentacoes) {
-			System.out.println(movimentacao);  
-			System.out.println();     
+			System.out.println(movimentacao);
+			System.out.println();
 		}
 		System.out.println();
 		System.out.println("************************************************");
@@ -53,5 +49,5 @@ public class ContaCorrente extends Conta {
 		System.out.println("************************************************");
 		System.out.println();
 	}
-	
+
 }

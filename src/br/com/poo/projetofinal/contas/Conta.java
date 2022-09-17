@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 public abstract class Conta {
-	
+
 	protected String tipoConta;
 	protected String nome;
 	protected String cpf;
@@ -15,15 +15,12 @@ public abstract class Conta {
 	protected Integer numeroConta;
 	protected Integer idAgencia;
 	protected ArrayList<Movimentacao> movimentacoes;
-	
-	
+
 	public static Map<String, Conta> mapaContas = new HashMap<>();
-
-
 
 	public Conta() {
 		super();
-		
+
 	}
 
 	public Conta(String tipoConta, String nome, String cpf, String senha, Double saldo, Integer numeroConta,
@@ -37,11 +34,10 @@ public abstract class Conta {
 		this.numeroConta = numeroConta;
 		this.idAgencia = idAgencia;
 		this.movimentacoes = new ArrayList<Movimentacao>();
-        Movimentacao movimentacao = new Movimentacao("Abertura de contra", saldo);
-        this.movimentacoes.add(movimentacao);
+		Movimentacao movimentacao = new Movimentacao("Abertura de conta", saldo);
+		this.movimentacoes.add(movimentacao);
 	}
-	
-	
+
 	public String getTipoConta() {
 		return tipoConta;
 	}
@@ -73,81 +69,47 @@ public abstract class Conta {
 	public double getSaldo() {
 		return saldo;
 	}
-//testando sem boolean 
-	/*public boolean sacar(double valor) {
-		if (this.saldo < valor) {
-			System.out.println("Saldo insuficiente!");
-			return false;
-		} else {
-			double novoSaldo = this.saldo - valor;
-			this.saldo = novoSaldo;
-			return true;
-		}
-		Movimentacao movimentacao= new Movimentacao("sacar", valor);
-    this.movimentacoes.add(movimentacao);
-	}*/
 
-	public Double sacar(Double valor){
-    
+	public Double sacar(Double valor) {
+
 		// verifica se o saldo é menor que o valor retirado
-		if(valor>this.saldo){
+		if (valor > this.saldo) {
 			// caso seja menor tras a execessão abaixo throw new
-			throw new InputMismatchException("Saque indisponivel, por não ter valor em conta!!");
-		}else{
-			// caso a operação seja valida da o resultado da operação e traz o valor novamente
-			this.saldo -=valor;
-			
+			throw new InputMismatchException("Saque indisponível, valor insuficiente!\n");
+		} else {
+			// caso a operação seja valida da o resultado da operação e traz o valor
+			// novamente
+			this.saldo -= valor;
+			System.out.println("Saque efetuado com sucesso!");
+
 		}
-			Movimentacao movimentacao= new Movimentacao("sacar", valor);
-			this.movimentacoes.add(movimentacao);
-	
-			return valor;
-			
-	
+		Movimentacao movimentacao = new Movimentacao("sacar", valor);
+		this.movimentacoes.add(movimentacao);
+
+		return valor;
+
 	}
-	public void depositar(Double valor){
-		if(valor<0){
-			
+
+	public void depositar(Double valor) {
+		if (valor > 0) {
 			this.saldo += valor;
-		}else{
-			throw new InputMismatchException("valor de deposito é muito baixo!! ");
+			System.out.println("Depósito efetuado com sucesso!");
+		} else {
+			throw new InputMismatchException("Valor inválido!");
 		}
 		// extrato
-		Movimentacao movimentacao= new Movimentacao("Deposito", valor);
+		Movimentacao movimentacao = new Movimentacao("Deposito", valor);
 		this.movimentacoes.add(movimentacao);
 	}
-	//testando sem boolean 
-	/*public boolean depositar(double valor) {
-		if (valor < 0) {
-			System.out.println("Valor inválido!");
-			return false;
-		} else {
-			this.saldo += valor;
-		}
-		Movimentacao movimentacao= new Movimentacao("Deposito", valor);
-        this.movimentacoes.add(movimentacao);
-		return true;
-	}*/
 
-	public void transferir(Double valor, Conta contaDestino){
-		//efetua um saque na conta atual
-			this.sacar(valor);
-		
-		// efetuar um deposito na conta destino
-			contaDestino.depositar(valor);
-		
-		}
-	
 	/*public boolean transferir(Double valor, Conta contaDestino ) {
-		var valorSacado = efetuarSaque(valor);
-		contaDestino.depositar(valorSacado);
-		var movimentacao = new Movimentacao(ETipoMovimentacao.TRANSFERENCIA, valorSacado, contaDestino);
-		this.movimentacoes.add(movimentacao);
-	}*/
+	var valorSacado = efetuarSaque(valor);
+	contaDestino.depositar(valorSacado);
+	var movimentacao = new Movimentacao(ETipoMovimentacao.TRANSFERENCIA, valorSacado, contaDestino);
+	this.movimentacoes.add(movimentacao);
+}*/
 
-	public void imprimirExtrato() {
-		
-		
+	public void imprimirExtrato() {			
 	}
-	
+
 }

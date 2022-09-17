@@ -20,5 +20,5 @@ public class Gerente extends Funcionario {
 	public void setIdAgencia(int idAgencia) {
 		this.idAgencia = idAgencia;
 	}
-		
+
 }

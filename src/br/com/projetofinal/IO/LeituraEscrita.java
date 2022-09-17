@@ -35,44 +35,38 @@ public class LeituraEscrita {
 							Integer.parseInt(dados[5]), Double.parseDouble(dados[6]), Integer.parseInt(dados[7]));
 					Funcionario.mapaFuncionarios.put(dados[2], gerente);
 					Funcionario.OrdenaFuncionarios.put(dados[0], gerente);
-					
-				}	else if (dados[0].equalsIgnoreCase(ETipoFuncionario.DIRETOR.getTipoFuncionario())) {
+
+				} else if (dados[0].equalsIgnoreCase(ETipoFuncionario.DIRETOR.getTipoFuncionario())) {
 					Diretor diretor = new Diretor(dados[0], dados[1], dados[2], dados[3], Integer.parseInt(dados[4]),
 							Integer.parseInt(dados[5]), Double.parseDouble(dados[6]));
 					Funcionario.mapaFuncionarios.put(dados[2], diretor);
 					Funcionario.OrdenaFuncionarios.put(dados[1], diretor);
-					
+
 				} else if (dados[0].equalsIgnoreCase(ETipoFuncionario.PRESIDENTE.getTipoFuncionario())) {
-					Presidente presidente = new Presidente(dados[0], dados[1], dados[2], dados[3], Integer.parseInt(dados[4]),
-							Integer.parseInt(dados[5]), Double.parseDouble(dados[6]));
+					Presidente presidente = new Presidente(dados[0], dados[1], dados[2], dados[3],
+							Integer.parseInt(dados[4]), Integer.parseInt(dados[5]), Double.parseDouble(dados[6]));
 					Funcionario.mapaFuncionarios.put(dados[2], presidente);
 					Funcionario.OrdenaFuncionarios.put(dados[1], presidente);
-					
+
 				} else if (dados[0].equalsIgnoreCase(ETipoConta.POUPANCA.getTipoConta())) {
-					ContaPoupanca cp = new ContaPoupanca(dados[0], dados[1],
-							dados[2], dados[3], Double.parseDouble(dados[4]), Integer.parseInt(dados[5]),
-							Integer.parseInt(dados[6]), null);
-					Conta.mapaContas.put(dados[2], cp);	
-					
+					ContaPoupanca cp = new ContaPoupanca(dados[0], dados[1], dados[2], dados[3],
+							Double.parseDouble(dados[4]), Integer.parseInt(dados[5]), Integer.parseInt(dados[6]), null);
+					Conta.mapaContas.put(dados[2], cp);
+
 				} else if (dados[0].equalsIgnoreCase(ETipoConta.CORRENTE.getTipoConta())) {
-					ContaCorrente cc = new ContaCorrente(dados[0], dados[1],
-							dados[2], dados[3], Double.parseDouble(dados[4]), Integer.parseInt(dados[5]),
-							Integer.parseInt(dados[6]), null);
-					Conta.mapaContas.put(dados[2], cc);	
+					ContaCorrente cc = new ContaCorrente(dados[0], dados[1], dados[2], dados[3],
+							Double.parseDouble(dados[4]), Integer.parseInt(dados[5]), Integer.parseInt(dados[6]), null);
+					Conta.mapaContas.put(dados[2], cc);
 				} else if (dados[0].equalsIgnoreCase(ETipoPessoa.CLIENTE.getTipoPessoa())) {
 					Cliente cliente = new Cliente(dados[0], dados[1], dados[2], dados[3], dados[4],
 							Double.parseDouble(dados[5]));
 					Cliente.mapaClientes.put(dados[3], cliente);
 				}
-								
+
 			} else {
 				break;
 			}
 		}
 		buffRead.close();
 	}
-}	
-					
-				
-
-	
+}

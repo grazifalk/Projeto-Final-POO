@@ -1,9 +1,11 @@
 package br.com.poo.projetofinal.util;
+
 import java.io.IOException;
 
 // import br.com.poo.modelo.enums.PessoaEnum;
 import br.com.poo.projetofinal.contas.Conta;
 import br.com.poo.projetofinal.funcionario.Funcionario;
+import br.com.poo.projetofinal.pessoas.Cliente;
 import br.com.poo.projetofinal.principal.Principal;
 import br.com.projetofinal.IO.LeituraEscrita;
 
@@ -13,7 +15,7 @@ public class MenuPrincipal {
 	static String inputCpf;
 	int operacao;
 
-	public static void menuPrincipal(Funcionario funcionario, Conta conta) throws IOException {
+	public static void menuCliente(Cliente cliente, Conta conta) throws IOException {
 		Principal principal = new Principal();
 
 		try {
@@ -23,7 +25,7 @@ public class MenuPrincipal {
 			System.out.println("[4]\tSaldo");
 			System.out.println("[5]\tRelatório");
 			System.out.println("[6]\tSair");
-			//principal.imprimeLinhaHorizontal();
+			// principal.imprimeLinhaHorizontal();
 			System.out.print("Digite a opção desejada: ");
 			int opcaoOperacao = Principal.sc.nextInt();
 			Double inputValor;
@@ -34,24 +36,39 @@ public class MenuPrincipal {
 				System.out.print("Digite o valor que deseja sacar: ");
 				inputValor = Double.parseDouble(Principal.sc.next());
 				conta.sacar(inputValor);
-			//	LeituraEscrita.comprovanteSaque(conta, inputValor);
+				// LeituraEscrita.comprovanteSaque(conta, inputValor);
 				break;
 			case 2:
-//				depositar
+				Principal.imprimeLinhaHorizontal();
+				System.out.print("Digite o valor que deseja depositar: ");
+				inputValor = Double.parseDouble(Principal.sc.next());
+				conta.depositar(inputValor);
 				break;
 			case 3:
-//				transferir
+				Principal.imprimeLinhaHorizontal();
+				System.out.print("Digite o valor que deseja transferir: ");
+				inputValor = Double.parseDouble(Principal.sc.next());
+			//	conta.transferir(inputValor, conta);
 				break;
 			case 4:
+				System.out.println();
 				System.out.printf("Seu saldo é: R$%.2f", conta.getSaldo());
-			//	LeituraEscrita.comprovanteSaldo(conta);
+				System.out.println();
+				System.out.println();
+				// LeituraEscrita.comprovanteSaldo(conta);
 				break;
 			case 5:
-			 //	if (funcionario.getTipoFuncionario().equalsIgnoreCase(PessoaEnum.GERENTE.getTipoPessoa())) {
-				//	MenuRelatorio.menuRelatorio(PessoaEnum.GERENTE.getIdTipoPessoa(), funcionario, conta);
-			//	} else if (funcionario.getTipoFuncionario().equalsIgnoreCase(PessoaEnum.DIRETOR.getTipoPessoa())) {
-			//		MenuRelatorio.menuRelatorio(PessoaEnum.DIRETOR.getIdTipoPessoa(), funcionario, conta);
-			//	}
+				// if
+				// (funcionario.getTipoFuncionario().equalsIgnoreCase(PessoaEnum.GERENTE.getTipoPessoa()))
+				// {
+				// MenuRelatorio.menuRelatorio(PessoaEnum.GERENTE.getIdTipoPessoa(),
+				// funcionario, conta);
+				// } else if
+				// (funcionario.getTipoFuncionario().equalsIgnoreCase(PessoaEnum.DIRETOR.getTipoPessoa()))
+				// {
+				// MenuRelatorio.menuRelatorio(PessoaEnum.DIRETOR.getIdTipoPessoa(),
+				// funcionario, conta);
+				// }
 				break;
 			case 6:
 				principal.menuInterativo();
@@ -60,44 +77,77 @@ public class MenuPrincipal {
 				System.out.println("Opção inválida!");
 			}
 
-			menuPrincipal(funcionario, conta);
+			menuCliente(cliente, conta);
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
-			menuPrincipal(funcionario, conta);
+			menuCliente(cliente, conta);
 		}
 	}
-	public static void apresentacao(){
 
-		try{ 
-			System.out.println("************************************");
-			Thread.sleep(500);
-			System.out.println("*************   Bem Vindo  *********"); 
-			Thread.sleep(500);
-			System.out.println("***************  G4 bank  **********"); 
-			Thread.sleep(500);
-			System.out.println("************************************");
-			Thread.sleep(500);
-			System.out.println("************************************");  
-			Thread.sleep(2000);
-			limTela();  
+	public static void menuFuncionario(Funcionario funcionario, Conta conta) throws IOException {
+		Principal principal = new Principal();
+
+		try {
+			System.out.println("[1]\tRelatório");
+			System.out.println("[2]\tSair");
+			// principal.imprimeLinhaHorizontal();
+			System.out.print("Digite a opção desejada: ");
+			int opcaoOperacao = Principal.sc.nextInt();
+			Double inputValor;
+
+			switch (opcaoOperacao) {
+			case 1:
+				Principal.imprimeLinhaHorizontal();
+				System.out.print("Bem vindo aos relatórios!\n");
+				// LeituraEscrita.comprovanteSaque(conta, inputValor);
+				break;
+			case 2:
+				Principal.imprimeLinhaHorizontal();
+				System.out.print("Agradecemos por utilizar nosso sistema!\n");
+				principal.menuInterativo();
+				break;
+			default:
+				System.out.println("Opção inválida!\n");
+			}
+
+			menuFuncionario(funcionario, conta);
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			menuFuncionario(funcionario, conta);
 		}
-		catch (Exception e) {//
-				
+	}
+
+	public static void apresentacao() {
+
+		try {
+			System.out.println("************************************");
+			Thread.sleep(500);
+			System.out.println("***********   Bem Vindo   **********");
+			Thread.sleep(500);
+			System.out.println("***********    G4 Bank    **********");
+			Thread.sleep(500);
+			System.out.println("************************************");
+			Thread.sleep(500);
+			System.out.println("****  Iluminando o Seu Futuro!  ****");
+			Thread.sleep(500);
+			System.out.println("************************************");
+			Thread.sleep(2000);
+			limTela();
+		} catch (Exception e) {//
+
 			// catching the exception
 			System.out.println(e);
 		}
 
 	}
 
-
-
-
-
 	public static void limTela() {
-		for (int i = 0; i<15;i++){
+		for (int i = 0; i < 15; i++) {
 			System.out.println();
 		}
-}
+	}
 }

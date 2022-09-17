@@ -1,4 +1,13 @@
 cliente;corrente;Priscila de Almeida;352.320.170-55;34453;1500.00
+cliente;corrente;Rafael Gomes;059.000.815-32;123059;1200.00
+cliente;corrente;Graziela Falk;436.599.560-07;567436;800.00
+cliente;corrente;Gabriel Brandão;682.143.008-00;890682;300.00
+cliente;corrente;Yuri Ramos;831.720.732-38;123831;15000.00
+cliente;poupanca;Maria Eduarda;826.376.616-82;345826;600.00
+cliente;poupanca;Eduarda Lara Ferreira;861.973.433-47;123861;800.00
+cliente;poupanca;Marcelo Diogo das Neves;723.098.739-34;123723;900.00
+cliente;poupanca;Sophia Luana da Costa;615.825.363-41;123615;920.00
+cliente;poupanca;Matheus Kevin Ramos;144.233.363-25;123555;220.00
 corrente;Priscila de Almeida;352.320.170-55;34453;1500.00;11111;222
 corrente;Rafael Gomes;059.000.815-32;123059;1200.00;22222;333
 corrente;Graziela Falk;436.599.560-07;567436;800.00;33333;444

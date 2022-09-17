@@ -10,5 +10,5 @@ public class Presidente extends Funcionario {
 			Integer numeroConta, Double salario) {
 		super(eTipoFuncionario, nome, cpf, senha, agencia, numeroConta, salario);
 	}
-	
+
 }
