@@ -7,7 +7,7 @@ public class DataUtil {
 
 	public static String converterDateParaDataEHora(Date data) {
 
-		SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/YYYY HH:mm");
+		SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/YYYY - HH:mm");
 		// 08/08/2021 12:52 hrs
 		return formatador.format(data);
 

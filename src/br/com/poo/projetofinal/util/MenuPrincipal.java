@@ -1,6 +1,7 @@
 package br.com.poo.projetofinal.util;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 // import br.com.poo.modelo.enums.PessoaEnum;
 import br.com.poo.projetofinal.contas.Conta;
@@ -17,13 +18,14 @@ public class MenuPrincipal {
 
 	public static void menuCliente(Cliente cliente, Conta conta) throws IOException {
 		Principal principal = new Principal();
+		Scanner sc = new Scanner(System.in);
 
 		try {
 			System.out.println("[1]\tSaque");
 			System.out.println("[2]\tDeposito");
 			System.out.println("[3]\tTransferência");
 			System.out.println("[4]\tSaldo");
-			System.out.println("[5]\tRelatório");
+			System.out.println("[5]\tExtrato");
 			System.out.println("[6]\tSair");
 			// principal.imprimeLinhaHorizontal();
 			System.out.print("Digite a opção desejada: ");
@@ -46,9 +48,12 @@ public class MenuPrincipal {
 				break;
 			case 3:
 				Principal.imprimeLinhaHorizontal();
+				System.out.println("Informe para qual CPF deseja realizar a transferência: ");
+				String cpf = sc.nextLine();
 				System.out.print("Digite o valor que deseja transferir: ");
 				inputValor = Double.parseDouble(Principal.sc.next());
-			//	conta.transferir(inputValor, conta);
+				Conta contaDestino = (Conta) Conta.mapaContas.get(cpf);
+				conta.transferir(inputValor, contaDestino);
 				break;
 			case 4:
 				System.out.println();
@@ -58,17 +63,18 @@ public class MenuPrincipal {
 				// LeituraEscrita.comprovanteSaldo(conta);
 				break;
 			case 5:
-				// if
-				// (funcionario.getTipoFuncionario().equalsIgnoreCase(PessoaEnum.GERENTE.getTipoPessoa()))
-				// {
-				// MenuRelatorio.menuRelatorio(PessoaEnum.GERENTE.getIdTipoPessoa(),
-				// funcionario, conta);
-				// } else if
-				// (funcionario.getTipoFuncionario().equalsIgnoreCase(PessoaEnum.DIRETOR.getTipoPessoa()))
-				// {
-				// MenuRelatorio.menuRelatorio(PessoaEnum.DIRETOR.getIdTipoPessoa(),
-				// funcionario, conta);
-				// }
+//				 if
+//				 (funcionario.getTipoFuncionario().equalsIgnoreCase(PessoaEnum.GERENTE.getTipoPessoa()))
+//				 {
+//				 MenuRelatorio.menuRelatorio(PessoaEnum.GERENTE.getIdTipoPessoa(),
+//				 funcionario, conta);
+//				 } else if
+//				 (funcionario.getTipoFuncionario().equalsIgnoreCase(PessoaEnum.DIRETOR.getTipoPessoa()))
+//				 {
+//				 MenuRelatorio.menuRelatorio(PessoaEnum.DIRETOR.getIdTipoPessoa(),
+//				 funcionario, conta);
+//				 }
+				conta.imprimirExtrato();
 				break;
 			case 6:
 				principal.menuInterativo();

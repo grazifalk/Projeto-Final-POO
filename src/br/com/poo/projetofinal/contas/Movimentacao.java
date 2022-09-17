@@ -2,6 +2,7 @@ package br.com.poo.projetofinal.contas;
 
 import java.util.Date;
 
+import br.com.poo.projetofinal.enums.ETipoMovimentacao;
 import br.com.poo.projetofinal.util.DataUtil;
 
 public class Movimentacao {
@@ -13,6 +14,9 @@ public class Movimentacao {
 		this.descricao = descricao;
 		this.data = new Date();
 		this.valor = valor;
+	}
+
+	public Movimentacao(ETipoMovimentacao transferencia, Double valorSacado, Conta contaDestino) {
 	}
 
 	public String getDescricao() {

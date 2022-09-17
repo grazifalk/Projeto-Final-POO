@@ -2,6 +2,9 @@ package br.com.poo.projetofinal.contas;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import br.com.poo.projetofinal.enums.ETipoMovimentacao;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
@@ -70,7 +73,7 @@ public abstract class Conta {
 		return saldo;
 	}
 
-	public Double sacar(Double valor) {
+	public void sacar(Double valor) {
 
 		// verifica se o saldo é menor que o valor retirado
 		if (valor > this.saldo) {
@@ -83,10 +86,8 @@ public abstract class Conta {
 			System.out.println("Saque efetuado com sucesso!");
 
 		}
-		Movimentacao movimentacao = new Movimentacao("sacar", valor);
+		Movimentacao movimentacao = new Movimentacao("Retirada: ", valor);
 		this.movimentacoes.add(movimentacao);
-
-		return valor;
 
 	}
 
@@ -98,18 +99,42 @@ public abstract class Conta {
 			throw new InputMismatchException("Valor inválido!");
 		}
 		// extrato
-		Movimentacao movimentacao = new Movimentacao("Deposito", valor);
+		Movimentacao movimentacao = new Movimentacao("Depósito: ", valor);
 		this.movimentacoes.add(movimentacao);
+
+	}
+	
+	public void transferir(Double valor, Conta contaDestino) {
+		if (valor > this.saldo) {
+			throw new InputMismatchException("Saque indisponível, valor insuficiente!\n");
+		} else {
+			this.saldo -= valor;
+		} if (valor > 0) {
+			this.saldo += valor;
+		} else {
+			throw new InputMismatchException("Valor inválido!");
+		}
+		Movimentacao movimentacao = new Movimentacao("Transferência: ", valor);
+		this.movimentacoes.add(movimentacao);
+		
 	}
 
-	/*public boolean transferir(Double valor, Conta contaDestino ) {
-	var valorSacado = efetuarSaque(valor);
-	contaDestino.depositar(valorSacado);
-	var movimentacao = new Movimentacao(ETipoMovimentacao.TRANSFERENCIA, valorSacado, contaDestino);
-	this.movimentacoes.add(movimentacao);
-}*/
+//	public void transferir(Double valor, Conta contaDestino) {
+//	var valorSacado = sacar(valor);
+//	contaDestino.depositar(valorSacado);
+//	var movimentacao = new Movimentacao(ETipoMovimentacao.TRANSFERENCIA, valorSacado, contaDestino);
+//	this.movimentacoes.add(movimentacao);
+//}
 
 	public void imprimirExtrato() {			
+	}
+
+	public Double taxarSaque(Double valor) {
+		return null;
+	}
+
+	public Double taxarDeposito(Double valor) {
+		return null;
 	}
 
 }
