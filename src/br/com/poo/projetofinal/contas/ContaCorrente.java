@@ -82,10 +82,10 @@ public class ContaCorrente extends Conta {
 		} else {
 			Double valorTaxado = taxarDeposito(valor);
 			if (this.saldo - valorTaxado >= 0.1) {
-				this.saldo -= valorTaxado;
+				this.saldo += valorTaxado;
 				this.totalTributado += Taxas.DEPOSITO;
 				System.out.println("Depósito efetuado com sucesso!");
-				++totalSaques;
+				++totalDepositos;
 			}
 			Movimentacao movimentacao = new Movimentacao("Depósito: R$ " + valor + " - Taxa de R$ " + Taxas.DEPOSITO, valorTaxado);
 			this.movimentacoes.add(movimentacao);
@@ -95,11 +95,11 @@ public class ContaCorrente extends Conta {
 
 	@Override
 	public Double taxarDeposito(Double valor) {
-		return valor + Taxas.DEPOSITO;
+		return valor - Taxas.DEPOSITO;
 	}
 	
 //	@Override
-//	public Double transferir(Conta contaDestino, Double valor) {
+//	public void transferir(Conta contaDestino, Double valor) {
 //		if (valor > this.saldo) {
 //			throw new InputMismatchException("Transferência indisponível, saldo insuficiente!\n");
 //		} else {
@@ -118,7 +118,7 @@ public class ContaCorrente extends Conta {
 //	}
 //
 //	@Override
-//	public Double taxarTransferencia(Double valor) {
+//	public void taxarTransferencia(Double valor) {
 //		return valor + Taxas.TRANSFERENCIA;
 //	}
 

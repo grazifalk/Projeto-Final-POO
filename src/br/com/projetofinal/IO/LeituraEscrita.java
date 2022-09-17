@@ -1,7 +1,9 @@
 package br.com.projetofinal.IO;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import br.com.poo.projetofinal.contas.Conta;
@@ -15,6 +17,7 @@ import br.com.poo.projetofinal.funcionario.Funcionario;
 import br.com.poo.projetofinal.funcionario.Gerente;
 import br.com.poo.projetofinal.funcionario.Presidente;
 import br.com.poo.projetofinal.pessoas.Cliente;
+import br.com.poo.projetofinal.util.DataUtil;
 
 public class LeituraEscrita {
 
@@ -69,4 +72,40 @@ public class LeituraEscrita {
 		}
 		buffRead.close();
 	}
+	
+	public static void comprovanteSaque(Conta conta, double Valor) throws IOException {
+
+	    String arq = conta.getNome() + "_Comprovante_Saque";
+	    try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + arq + EXTENSAO, true));) {
+
+	      String linha = "============ saque ============";
+	      buffWrite.append(linha + "\n");
+
+	      linha = "Nome: " + conta.getNome();
+	      buffWrite.append(linha + "\n");
+
+	      linha = "Agencia: " + conta.getIdAgencia();
+	      buffWrite.append(linha + "\n");
+	      
+	      linha = "Numero da Conta: " + conta.getNumeroConta();
+	      buffWrite.append(linha + "\n");
+
+	      linha = "Valor: R$ " + Valor;
+	      buffWrite.append(linha + "\n");
+
+	      linha = DataUtil.data();
+	      buffWrite.append(linha + "\n");
+
+	      linha = "============= fim do saque =============";
+	      buffWrite.append(linha + "\n");
+
+	      buffWrite.close();
+
+	    } catch (IOException e) {
+	      e.printStackTrace();
+	    } catch (Exception e) {
+	      e.printStackTrace();
+	    }
+
+	  }
 }

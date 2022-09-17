@@ -14,7 +14,7 @@ public class MenuPrincipal {
 
 	double inputValor;
 	static String inputCpf;
-	int operacao;
+	String operacao;
 
 	public static void menuCliente(Cliente cliente, Conta conta) throws IOException {
 		Principal principal = new Principal();
@@ -29,24 +29,24 @@ public class MenuPrincipal {
 			System.out.println("[6]\tSair");
 			// principal.imprimeLinhaHorizontal();
 			System.out.print("Digite a opção desejada: ");
-			int opcaoOperacao = Principal.sc.nextInt();
+			String opcaoOperacao = Principal.sc.next();
 			Double inputValor;
 
 			switch (opcaoOperacao) {
-			case 1:
+			case "1":
 				Principal.imprimeLinhaHorizontal();
 				System.out.print("Digite o valor que deseja sacar: ");
 				inputValor = Double.parseDouble(Principal.sc.next());
+				LeituraEscrita.comprovanteSaque(conta, inputValor);
 				conta.sacar(inputValor);
-				// LeituraEscrita.comprovanteSaque(conta, inputValor);
 				break;
-			case 2:
+			case "2":
 				Principal.imprimeLinhaHorizontal();
 				System.out.print("Digite o valor que deseja depositar: ");
 				inputValor = Double.parseDouble(Principal.sc.next());
 				conta.depositar(inputValor);
 				break;
-			case 3:
+			case "3":
 				Principal.imprimeLinhaHorizontal();
 				System.out.println("Informe para qual CPF deseja realizar a transferência: ");
 				String cpf = sc.nextLine();
@@ -55,14 +55,14 @@ public class MenuPrincipal {
 				Conta contaDestino = (Conta) Conta.mapaContas.get(cpf);
 				conta.transferir(inputValor, contaDestino);
 				break;
-			case 4:
+			case "4":
 				System.out.println();
 				System.out.printf("Seu saldo é: R$%.2f", conta.getSaldo());
 				System.out.println();
 				System.out.println();
 				// LeituraEscrita.comprovanteSaldo(conta);
 				break;
-			case 5:
+			case "5":
 //				 if
 //				 (funcionario.getTipoFuncionario().equalsIgnoreCase(PessoaEnum.GERENTE.getTipoPessoa()))
 //				 {
@@ -76,13 +76,14 @@ public class MenuPrincipal {
 //				 }
 				conta.imprimirExtrato();
 				break;
-			case 6:
+			case "6":
 				principal.menuInterativo();
 				break;
 			default:
 				System.out.println("Opção inválida!");
+								
 			}
-
+			
 			menuCliente(cliente, conta);
 
 		} catch (Exception e) {

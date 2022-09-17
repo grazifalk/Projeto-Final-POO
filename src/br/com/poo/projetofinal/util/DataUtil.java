@@ -1,6 +1,8 @@
 package br.com.poo.projetofinal.util;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class DataUtil {
@@ -28,5 +30,12 @@ public class DataUtil {
 		return formatador.format(data);
 
 	}
+	
+	public static String data() {
+        LocalDateTime data = LocalDateTime.now();
+        DateTimeFormatter formatada = DateTimeFormatter.ofPattern("dd/MM/yyyy 'as' hh:mm:ss a");
+        String dataFormatada = data.format(formatada);
+        return dataFormatada;
+    }
 
 }

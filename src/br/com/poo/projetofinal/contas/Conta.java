@@ -40,6 +40,10 @@ public abstract class Conta {
 		Movimentacao movimentacao = new Movimentacao("Abertura de conta", saldo);
 		this.movimentacoes.add(movimentacao);
 	}
+	
+	public String getNome() {
+		return nome;
+	}
 
 	public String getTipoConta() {
 		return tipoConta;
