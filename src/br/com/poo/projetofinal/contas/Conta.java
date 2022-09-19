@@ -156,8 +156,6 @@ public abstract class Conta {
 
 	public Double taxarTransferencia(Double valor) {
 		return null;
-		// TODO Auto-generated method stub
-
 	}
 
 }

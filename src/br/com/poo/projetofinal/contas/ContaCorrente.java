@@ -125,28 +125,4 @@ public class ContaCorrente extends Conta {
 		return valor + Taxas.TRANSFERENCIA;
 	}
 
-//	@Override
-//	public void transferir(Conta contaDestino, Double valor) {
-//		if (valor > this.saldo) {
-//			throw new InputMismatchException("Transferência indisponível, saldo insuficiente!\n");
-//		} else {
-//			Double valorTaxado = taxarTransferencia(valor);
-//			if (this.saldo - valorTaxado >= 0.2) {
-//				this.saldo -= valorTaxado;
-//				contaDestino.saldo += valor;
-//				this.totalTributado += Taxas.TRANSFERENCIA;
-//				System.out.println("Saque efetuado com sucesso!");
-//				++totalTransferencias;
-//			}
-//			Movimentacao movimentacao = new Movimentacao("Transferência: R$ " + valor + " - Taxa de R$ " + Taxas.TRANSFERENCIA, valorTaxado);
-//			this.movimentacoes.add(movimentacao);
-//
-//		}
-//	}
-//
-//	@Override
-//	public void taxarTransferencia(Double valor) {
-//		return valor + Taxas.TRANSFERENCIA;
-//	}
-
 }
