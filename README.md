@@ -13,4 +13,5 @@ Sistema bancário com login de clientes e funcionários, com foco principal nas 
 - [Graziela Falk](https://github.com/grazifalk)
 - [Maria Moraes](https://github.com/mahlynn)
 - [Priscila Almeida](https://github.com/Priscila-M)
+- [Rafael Gomes](https://github.com/rafagomes10)
 - [Yuri Ramos](https://github.com/Yuri-Ramos)
