@@ -6,7 +6,7 @@ cliente;corrente;Yuri Ramos;831.720.732-38;123831;15000.00
 cliente;poupanca;Maria Eduarda;826.376.616-82;345826;600.00
 cliente;poupanca;Eduarda Lara Ferreira;861.973.433-47;123861;800.00
 cliente;poupanca;Marcelo Diogo das Neves;723.098.739-34;123723;900.00
-cliente;poupanca;Sophia Luana da Costa;615.825.363-41;123615;920.00
+cliente;poupanca;Sophia Luana da Costa;450.579.610-80;658942;920.00
 cliente;poupanca;Matheus Kevin Ramos;144.233.363-25;123555;220.00
 corrente;Priscila de Almeida;352.320.170-55;34453;1500.00;11111;222
 corrente;Rafael Gomes;059.000.815-32;123059;1200.00;22222;333
@@ -16,7 +16,7 @@ corrente;Yuri Ramos;831.720.732-38;123831;15000.00;55555;222
 poupanca;Maria Eduarda;826.376.616-82;345826;600.00;66666;333
 poupanca;Eduarda Lara Ferreira;861.973.433-47;123861;800.00;77777;444
 poupanca;Marcelo Diogo das Neves;723.098.739-34;123723;900.00;88888;555
-poupanca;Sophia Luana da Costa;615.825.363-41;123615;920.00;99999;222
+poupanca;Sophia Luana da Costa;450.579.610-80;658942;920.00;99999;222
 poupanca;Matheus Kevin Ramos;144.233.363-25;123555;220.00;10105;333
 gerente;Lorena Sophia Monteiro;288.100.031-28;123288;222;10540;5300.00;222
 gerente;Martin Thiago de Paula;128.366.508-50;123128;333;20720;5800.00;333
