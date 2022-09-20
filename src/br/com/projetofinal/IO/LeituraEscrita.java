@@ -196,7 +196,7 @@ public class LeituraEscrita {
 			if (linha != null) {
 				String[] dados = linha.split(";");
 				if (dados[0].equalsIgnoreCase(ETipoPessoa.CLIENTE.getTipoPessoa())) {
-					if (Integer.parseInt(dados[4]) == idAgencia) {
+					if (Integer.parseInt(dados[7]) == idAgencia) {
 						cont++;
 					}
 

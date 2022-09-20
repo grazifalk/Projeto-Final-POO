@@ -15,7 +15,7 @@ public class Movimentacao {
 		this.data = new Date();
 		this.valor = valor;
 	}
-
+	
 	public Movimentacao(ETipoMovimentacao transferencia, Double valorSacado, Conta contaDestino) {
 	}
 
@@ -40,4 +40,5 @@ public class Movimentacao {
 		String dataFormatada = DataUtil.converterDateParaDataEHora(this.getData());
 		return this.getDescricao() + " - " + dataFormatada + " - R$ " + this.getValor();
 	}
+		
 }

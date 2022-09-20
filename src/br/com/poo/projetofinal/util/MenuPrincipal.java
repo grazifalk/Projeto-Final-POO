@@ -9,7 +9,6 @@ import java.util.Scanner;
 import br.com.poo.projetofinal.contas.Conta;
 import br.com.poo.projetofinal.enums.ETipoConta;
 import br.com.poo.projetofinal.funcionario.Funcionario;
-import br.com.poo.projetofinal.funcionario.Gerente;
 import br.com.poo.projetofinal.pessoas.Cliente;
 import br.com.poo.projetofinal.principal.Principal;
 import br.com.projetofinal.IO.LeituraEscrita;
@@ -125,12 +124,10 @@ public class MenuPrincipal {
 				String opOperacao = sc.next();
 				switch (opOperacao) {
 				case "1":
-					String cpf = funcionario.getCpf();
-					Gerente gerente = (Gerente) Gerente.mapaGerentes.get(cpf);
 					limTela();
 					Principal.imprimeLinhaHorizontal();
-					System.out.println("\n O total de contas na agência " + gerente.getIdAgencia() + " são: "
-							+ LeituraEscrita.escritorContaAgencia("dados", gerente.getIdAgencia()));
+					System.out.println("\n O total de contas na agência " + funcionario.getIdAgencia() + " são: "
+							+ LeituraEscrita.escritorContaAgencia("dados", funcionario.getIdAgencia()));
 					menuFuncionario(funcionario, conta);
 					break;
 				case "2":

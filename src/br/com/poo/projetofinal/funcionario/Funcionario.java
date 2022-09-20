@@ -78,6 +78,10 @@ public abstract class Funcionario implements Comparable<Funcionario> {
 	public Double getSalario() {
 		return salario;
 	}
+	
+	public Integer getIdAgencia() {
+		return idAgencia;
+	}
 
 	@Override
 	public int compareTo(Funcionario outroFuncionario) {
