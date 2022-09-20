@@ -79,27 +79,11 @@ public abstract class Conta {
 		return saldo;
 	}
 
-//	public void saldo(Double valor) {
-//
-//		if (this.saldo > 0) {
-//			System.out.printf("Seu saldo é: R$%.2f" + this.saldo);
-//			} else if (this.saldo < 0) {
-//				System.out.printf("Seu saldo é: R$%.2f", Conta.getSaldo());
-//			}
-//		Movimentacao movimentacao = new Movimentacao("Saldo: ", valor);
-//		this.movimentacoes.add(movimentacao);
-//
-//	}
-
 	public void sacar(Double valor) {
 
-		// verifica se o saldo é menor que o valor retirado
 		if (valor > this.saldo) {
-			// caso seja menor tras a execessão abaixo throw new
 			throw new InputMismatchException("Saque indisponível, valor insuficiente!\n");
 		} else {
-			// caso a operação seja valida da o resultado da operação e traz o valor
-			// novamente
 			this.saldo -= valor;
 			System.out.println("Saque efetuado com sucesso!");
 
@@ -135,13 +119,6 @@ public abstract class Conta {
 		this.movimentacoes.add(movimentacao);
 
 	}
-
-//	public void transferir(Double valor, Conta contaDestino) {
-//	var valorSacado = sacar(valor);
-//	contaDestino.depositar(valorSacado);
-//	var movimentacao = new Movimentacao(ETipoMovimentacao.TRANSFERENCIA, valorSacado, contaDestino);
-//	this.movimentacoes.add(movimentacao);
-//}
 
 	public void imprimirExtrato() {
 	}

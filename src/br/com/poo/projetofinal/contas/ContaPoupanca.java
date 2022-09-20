@@ -29,7 +29,6 @@ public class ContaPoupanca extends Conta {
 		System.out.println("      gerado em : " + DataUtil.converterDateParaDataEHora(new Date()));
 		System.out.println();
 
-		// para cada movimentacao dentro de movimentacoes fara
 		for (Movimentacao movimentacao : this.movimentacoes) {
 			System.out.println(movimentacao);
 			System.out.println();

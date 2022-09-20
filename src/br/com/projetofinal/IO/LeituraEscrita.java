@@ -5,6 +5,11 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DecimalFormat;
+//import java.util.ArrayList;
+//import java.util.Comparator;
+//import java.util.List;
+//import java.util.TreeMap;
 
 import br.com.poo.projetofinal.contas.Conta;
 import br.com.poo.projetofinal.contas.ContaCorrente;
@@ -74,7 +79,7 @@ public class LeituraEscrita {
 	}
 
 	public static void comprovanteSaque(Conta conta, double Valor) throws IOException {
-
+		DecimalFormat df = new DecimalFormat("0.00");
 		String path = conta.getNome() + "_Comprovante_Saque";
 		try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));) {
 
@@ -90,7 +95,7 @@ public class LeituraEscrita {
 			linha = "Numero da Conta: " + conta.getNumeroConta();
 			buffWrite.append(linha + "\n");
 
-			linha = "Valor: R$ " + Valor;
+			linha = "Valor: R$ " + df.format(Valor);
 			buffWrite.append(linha + "\n");
 
 			linha = DataUtil.data();
@@ -110,7 +115,7 @@ public class LeituraEscrita {
 	}
 
 	public static void comprovanteDeposito(Conta conta, double Valor) throws IOException {
-
+		DecimalFormat df = new DecimalFormat("0.00");
 		String path = conta.getNome() + "_Comprovante_Deposito";
 		try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));) {
 
@@ -126,7 +131,7 @@ public class LeituraEscrita {
 			linha = "Numero da Conta: " + conta.getNumeroConta();
 			buffWrite.append(linha + "\n");
 
-			linha = "Valor: R$ " + Valor;
+			linha = "Valor: R$ " + df.format(Valor);
 			buffWrite.append(linha + "\n");
 
 			linha = DataUtil.data();
@@ -146,7 +151,7 @@ public class LeituraEscrita {
 	}
 
 	public static void comprovanteTransferencia(Conta conta, double Valor) throws IOException {
-
+		DecimalFormat df = new DecimalFormat("0.00");
 		String path = conta.getNome() + "_Comprovante_Transferencia";
 		try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));) {
 
@@ -162,7 +167,7 @@ public class LeituraEscrita {
 			linha = "Numero da Conta: " + conta.getNumeroConta();
 			buffWrite.append(linha + "\n");
 
-			linha = "Valor: R$ " + Valor;
+			linha = "Valor: R$ " + df.format(Valor);
 			buffWrite.append(linha + "\n");
 
 			linha = DataUtil.data();
@@ -183,31 +188,30 @@ public class LeituraEscrita {
 
 	public static int escritorContaAgencia(String path, Integer idAgencia) throws IOException {
 		BufferedReader buffRead = new BufferedReader(new FileReader(PATH_BASICO + path + EXTENSAO));
-			String linha = "";
-			int cont = 0;
+		String linha = "";
+		int cont = 0;
 
-			while (true) {
-				linha = buffRead.readLine();
-				if (linha != null) {
-					String[] dados = linha.split(";");
-					if (dados[0].equalsIgnoreCase(ETipoPessoa.CLIENTE.getTipoPessoa())) {
-						if (Integer.parseInt(dados[4]) == idAgencia) {
-							cont++;
-						}
-						
-					} else {
-						break;
+		while (true) {
+			linha = buffRead.readLine();
+			if (linha != null) {
+				String[] dados = linha.split(";");
+				if (dados[0].equalsIgnoreCase(ETipoPessoa.CLIENTE.getTipoPessoa())) {
+					if (Integer.parseInt(dados[4]) == idAgencia) {
+						cont++;
 					}
-				}
 
+				} else {
+					break;
+				}
 			}
-			buffRead.close();
-			return cont;
+
 		}
-	
+		buffRead.close();
+		return cont;
+	}
 
 	public static void extratoSaldo(Conta conta, double valor) throws IOException {
-
+		DecimalFormat df = new DecimalFormat("0.00");
 		String path = conta.getNome() + "_Extrato_Saldo";
 		try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));) {
 
@@ -223,7 +227,7 @@ public class LeituraEscrita {
 			linha = "Numero da Conta: " + conta.getNumeroConta();
 			buffWrite.append(linha + "\n");
 
-			linha = "Valor: R$ " + valor;
+			linha = "Valor: R$ " + df.format(valor);
 			buffWrite.append(linha + "\n");
 
 			linha = DataUtil.data();
@@ -241,9 +245,10 @@ public class LeituraEscrita {
 		}
 
 	}
-	
-	public static void relatorioPoupanca(Conta conta, Double quantia, Double rendimento, Double total, int dias) throws IOException {
 
+	public static void relatorioPoupanca(Conta conta, Double quantia, Double rendimento, Double total, int dias)
+			throws IOException {
+		DecimalFormat df = new DecimalFormat("0.00");
 		String path = conta.getNome() + "_Relatorio_Poupanca";
 		try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));) {
 
@@ -258,17 +263,17 @@ public class LeituraEscrita {
 
 			linha = "Numero da Conta: " + conta.getNumeroConta();
 			buffWrite.append(linha + "\n");
-			
-			linha = "Valor aplicado: R$ " + quantia;
+
+			linha = "Valor aplicado: R$ " + df.format(quantia);
 			buffWrite.append(linha + "\n");
-			
+
 			linha = "Número de dias: " + dias;
 			buffWrite.append(linha + "\n");
 
-			linha = "Valor do rendimento: R$ " + rendimento;
+			linha = "Valor do rendimento: R$ " + df.format(rendimento);
 			buffWrite.append(linha + "\n");
-			
-			linha = "Valor total: R$ " + total;
+
+			linha = "Valor total: R$ " + df.format(total);
 			buffWrite.append(linha + "\n");
 
 			linha = DataUtil.data();
@@ -286,5 +291,66 @@ public class LeituraEscrita {
 		}
 
 	}
+
+	public static void relatorioPresidente(Funcionario presidente, Double total) throws IOException {
+		DecimalFormat df = new DecimalFormat("0.00");
+		String path = presidente.getNome() + "_Relatorio_Total_Capital";
+		try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));) {
+
+			String linha = "********** Relatório do Valor Total do Capital **********";
+			buffWrite.append(linha + "\n");
+
+			linha = "Nome: " + presidente.getNome();
+			buffWrite.append(linha + "\n");
+
+			linha = "Capital total armazenado no banco: R$ " + df.format(total);
+			buffWrite.append(linha + "\n");
+
+			linha = DataUtil.data();
+			buffWrite.append(linha + "\n");
+
+			linha = "********** Fim do Relatório **********";
+			buffWrite.append(linha + "\n");
+
+			buffWrite.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+//	public static void relatorioDiretor(Funcionario diretor, Cliente OrdenaClientes) throws IOException {
+//
+//		TreeMap<String, Cliente> listaCl = Cliente.OrdenaClientes;
+//		String path = diretor.getNome() + "_Relatorio_Clientes";
+//		try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));) {
+//
+//			String linha = "********** Relatório de Clientes **********";
+//			buffWrite.append(linha + "\n");
+//
+//			linha = "Nome: " + diretor.getNome();
+//			buffWrite.append(linha + "\n");
+//			
+//			linha = listaCl.get(OrdenaClientes);
+//			buffWrite.append(linha + "\n");
+//
+//			linha = DataUtil.data();
+//			buffWrite.append(linha + "\n");
+//
+//			linha = "********** Fim do Relatório **********";
+//			buffWrite.append(linha + "\n");
+//
+//			buffWrite.close();
+//
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} 
+//
+//	}
 
 }

@@ -40,7 +40,6 @@ public class ContaCorrente extends Conta {
 		System.out.println("                Gerado em: " + DataUtil.converterDateParaDataEHora(new Date()));
 		System.out.println();
 
-		// para cada movimentacao dentro de movimentacoes faca
 		for (Movimentacao movimentacao : this.movimentacoes) {
 			System.out.println(movimentacao);
 			System.out.println();
@@ -110,7 +109,7 @@ public class ContaCorrente extends Conta {
 				this.saldo -= valorTaxado;
 				contaDestino.saldo += valor;
 				this.totalTributado += Taxas.TRANSFERENCIA;
-				System.out.println("Transferência efetuado com sucesso!");
+				System.out.println("Transferência efetuada com sucesso!");
 				++totalTransferencias;
 
 			}

@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 import br.com.poo.projetofinal.contas.Conta;
 import br.com.poo.projetofinal.enums.ETipoConta;
-import br.com.poo.projetofinal.enums.ETipoFuncionario;
 import br.com.poo.projetofinal.funcionario.Funcionario;
 import br.com.poo.projetofinal.funcionario.Gerente;
 import br.com.poo.projetofinal.pessoas.Cliente;
@@ -75,25 +74,25 @@ public class MenuPrincipal {
 				conta.imprimirExtrato();
 				break;
 			case "6":
-				if(conta.getTipoConta().equalsIgnoreCase(ETipoConta.POUPANCA.getTipoConta())) {
+				if (conta.getTipoConta().equalsIgnoreCase(ETipoConta.POUPANCA.getTipoConta())) {
 					System.out.println("Informe a quantia em dinheiro: ");
 					Double quantia = sc.nextDouble();
 					System.out.println("Informe quantos dias de rendimento: ");
 					int dias = sc.nextInt();
 					Double rendimento = dias * 0.5;
 					Double total = quantia + rendimento;
-					System.out.printf("O rendimento de " + dias + " dias é: R$%.2f ", rendimento , "!");
+					System.out.printf("O rendimento de " + dias + " dias é: R$%.2f ", rendimento, "!");
 					System.out.println();
 					System.out.printf("O rendimento total é: R$%.2f ", total, "!");
 					System.out.println();
 					Principal.imprimeLinhaHorizontal();
 					LeituraEscrita.relatorioPoupanca(conta, quantia, rendimento, total, dias);
-				}else {
+				} else {
 					System.out.println("A sua conta não possui rendimento!");
 					System.out.println();
 					Principal.imprimeLinhaHorizontal();
 				}
-				break;	
+				break;
 			case "7":
 				principal.menuInterativo();
 				break;
@@ -102,7 +101,7 @@ public class MenuPrincipal {
 
 				sc.close();
 			}
-			
+
 			menuCliente(cliente, conta);
 
 		} catch (Exception e) {
@@ -119,122 +118,124 @@ public class MenuPrincipal {
 		try {
 			if (funcionario.getETipoFuncionario().equals("gerente")) {
 				Principal.imprimeLinhaHorizontal();
-                System.out.println("\t[1]- Relatório Gerente");
-                System.out.println("\t[2]- Sair");
-                Principal.imprimeLinhaHorizontal();
-                System.out.print("\nDigite a opção desejada: ");
-                String opOperacao = sc.next();
-                switch (opOperacao) {
-                    case "1":
-                        String cpf = funcionario.getCpf();
-                        Gerente gerente = (Gerente) Gerente.mapaGerentes.get(cpf);
-                        limTela();
-                        Principal.imprimeLinhaHorizontal();
-                        System.out.println("\n O total de contas na agência " + gerente.getIdAgencia()
-                                + " são: " + LeituraEscrita.escritorContaAgencia("dados", gerente.getIdAgencia()));
-                        menuFuncionario(funcionario, conta);
-                        break;
-                    case "2":
-                        if (conta == null) {
-                        	principal.menuInterativo();
-                        } else {
-                            menuFuncionario(funcionario, conta);
-                        }
-                        break;
-                    default:
-                        System.out.println("\nOpção inválida!");
-                        menuFuncionario(funcionario, conta);
+				System.out.println("\t[1]- Relatório Gerente");
+				System.out.println("\t[2]- Sair");
+				Principal.imprimeLinhaHorizontal();
+				System.out.print("\nDigite a opção desejada: ");
+				String opOperacao = sc.next();
+				switch (opOperacao) {
+				case "1":
+					String cpf = funcionario.getCpf();
+					Gerente gerente = (Gerente) Gerente.mapaGerentes.get(cpf);
+					limTela();
+					Principal.imprimeLinhaHorizontal();
+					System.out.println("\n O total de contas na agência " + gerente.getIdAgencia() + " são: "
+							+ LeituraEscrita.escritorContaAgencia("dados", gerente.getIdAgencia()));
+					menuFuncionario(funcionario, conta);
+					break;
+				case "2":
+					if (conta == null) {
+						principal.menuInterativo();
+					} else {
+						menuFuncionario(funcionario, conta);
+					}
+					break;
+				default:
+					System.out.println("\nOpção inválida!");
+					menuFuncionario(funcionario, conta);
 
-                }
-            } else if (funcionario.getETipoFuncionario().equals("diretor")) {
-            	Principal.imprimeLinhaHorizontal();
-                System.out.println("\t[1]- Relatório Gerente");
-                System.out.println("\t[2]- Relatório  Diretor");
-                System.out.println("\t[3]- Sair");
-                Principal.imprimeLinhaHorizontal();
-                System.out.print("\nDigite a opção desejada: ");
-                String opOperacao = sc.next();
-                switch (opOperacao) {
-                    case "1":
-                        System.out.println("Em manutenção");
-                        menuFuncionario(funcionario, conta);
-                        break;
-                    case "2":
-                    	limTela();
-                        System.out.println("Contas cadastradas no banco");
-                        List<Cliente> listaCliente = new ArrayList<Cliente>(Cliente.mapaClientes.values());
-                        listaCliente.sort(Comparator.comparing(Cliente::getNome));
-                        for (int i = 0; i < listaCliente.size(); i++) {
-                            listaCliente.get(i);
+				}
+			} else if (funcionario.getETipoFuncionario().equals("diretor")) {
+				Principal.imprimeLinhaHorizontal();
+				System.out.println("\t[1]- Relatório Gerente");
+				System.out.println("\t[2]- Relatório  Diretor");
+				System.out.println("\t[3]- Sair");
+				Principal.imprimeLinhaHorizontal();
+				System.out.print("\nDigite a opção desejada: ");
+				String opOperacao = sc.next();
+				switch (opOperacao) {
+				case "1":
+					System.out.println("Em manutenção");
+					menuFuncionario(funcionario, conta);
+					break;
+				case "2":
+					limTela();
+					System.out.println("Contas cadastradas no banco: ");
+					List<Cliente> listaCliente = new ArrayList<Cliente>(Cliente.mapaClientes.values());
+					listaCliente.sort(Comparator.comparing(Cliente::getNome));
+					for (int i = 0; i < listaCliente.size(); i++) {
+						listaCliente.get(i);
 
-                            System.out.println(listaCliente.get(i));
-                        }
-                        menuFuncionario(funcionario, conta);
-                        break;
-                    case "3":
-                        if (conta == null) {
-                        	principal.menuInterativo();
-                        } else {
-                            menuFuncionario(funcionario, conta);
-                        }
-                        break;
-                    default:
-                        System.out.println("\nOpção inválida!");
-                        menuFuncionario(funcionario, conta);
-                }
-            } else if (funcionario.getETipoFuncionario().equals("presidente")) {
-            	Principal.imprimeLinhaHorizontal();
-                System.out.println("\t[1]- Relatório Gerente");
-                System.out.println("\t[2]- Relatório  Diretor");
-                System.out.println("\t[3]- Relatório Presidente");
-                System.out.println("\t[4]- Sair");
-                Principal.imprimeLinhaHorizontal();
-                System.out.print("\nDigite a opção desejada: ");
-                String opOperacao = sc.next();
-                switch (opOperacao) {
-                    case "1":
-                        System.out.println("Em manutenção");
-                        menuFuncionario(funcionario, conta);
-                        break;
-                    case "2":
-                    	limTela();
-                        System.out.println("Contas cadastradas no banco: ");
-                        List<Cliente> listaCliente = new ArrayList<Cliente>(Cliente.mapaClientes.values());
-                        listaCliente.sort(Comparator.comparing(Cliente::getNome));
-                        for (int i = 0; i < listaCliente.size(); i++) {
-                            listaCliente.get(i);
+						System.out.println(listaCliente.get(i));
+//                           Cliente lista = listaCliente.get(i);
+//                           LeituraEscrita.relatorioDiretor(funcionario, lista);
+					}
+					menuFuncionario(funcionario, conta);
+					break;
+				case "3":
+					if (conta == null) {
+						principal.menuInterativo();
+					} else {
+						menuFuncionario(funcionario, conta);
+					}
+					break;
+				default:
+					System.out.println("\nOpção inválida!");
+					menuFuncionario(funcionario, conta);
+				}
+			} else if (funcionario.getETipoFuncionario().equals("presidente")) {
+				Principal.imprimeLinhaHorizontal();
+				System.out.println("\t[1]- Relatório Gerente");
+				System.out.println("\t[2]- Relatório  Diretor");
+				System.out.println("\t[3]- Relatório Presidente");
+				System.out.println("\t[4]- Sair");
+				Principal.imprimeLinhaHorizontal();
+				System.out.print("\nDigite a opção desejada: ");
+				String opOperacao = sc.next();
+				switch (opOperacao) {
+				case "1":
+					System.out.println("Em manutenção");
+					menuFuncionario(funcionario, conta);
+					break;
+				case "2":
+					limTela();
+					System.out.println("Contas cadastradas no banco: ");
+					List<Cliente> listaCliente = new ArrayList<Cliente>(Cliente.mapaClientes.values());
+					listaCliente.sort(Comparator.comparing(Cliente::getNome));
+					for (int i = 0; i < listaCliente.size(); i++) {
+						listaCliente.get(i);
 
-                            System.out.println(listaCliente.get(i));
-                        }
-                        menuFuncionario(funcionario, conta);
-                        break;
-                    case "3":
-                    	limTela();
-                        double total = 0;
-                        for (Conta c : Conta.mapaContas.values()) {
-                            total = total + c.getSaldo();
-                        }
+						System.out.println(listaCliente.get(i));
+					}
+					menuFuncionario(funcionario, conta);
+					break;
+				case "3":
+					limTela();
+					double total = 0;
+					for (Conta c : Conta.mapaContas.values()) {
+						total = total + c.getSaldo();
+					}
 
-                        System.out.printf("Capital total armazenado no banco: R$ %.2f", total);
-                        System.out.println();
-                        menuFuncionario(funcionario, conta);
-                        break;
-                    case "4":
-                        if (conta == null) {
-                        	principal.menuInterativo();
-                        } else {
-                            menuFuncionario(funcionario, conta);
-                        }
-                        break;
-                    default:
-                        System.out.println("\nOpção inválida!");
-                        menuFuncionario(funcionario, conta);
-                        
-                        sc.close();
-                }
-            }
-		}
-             catch (Exception e) {
+					System.out.printf("Capital total armazenado no banco: R$ %.2f", total);
+					System.out.println();
+					LeituraEscrita.relatorioPresidente(funcionario, total);
+					menuFuncionario(funcionario, conta);
+					break;
+				case "4":
+					if (conta == null) {
+						principal.menuInterativo();
+					} else {
+						menuFuncionario(funcionario, conta);
+					}
+					break;
+				default:
+					System.out.println("\nOpção inválida!");
+					menuFuncionario(funcionario, conta);
+
+					sc.close();
+				}
+			}
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
 			menuFuncionario(funcionario, conta);
@@ -245,21 +246,20 @@ public class MenuPrincipal {
 
 		try {
 			System.out.println("************************************");
-			Thread.sleep(500);
+			Thread.sleep(200);
 			System.out.println("***********   Bem Vindo   **********");
-			Thread.sleep(500);
+			Thread.sleep(200);
 			System.out.println("***********    G4 Bank    **********");
-			Thread.sleep(500);
+			Thread.sleep(200);
 			System.out.println("************************************");
-			Thread.sleep(500);
+			Thread.sleep(200);
 			System.out.println("****  Iluminando o Seu Futuro!  ****");
-			Thread.sleep(500);
+			Thread.sleep(200);
 			System.out.println("************************************");
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			limTela();
 		} catch (Exception e) {//
 
-			// catching the exception
 			System.out.println(e);
 		}
 

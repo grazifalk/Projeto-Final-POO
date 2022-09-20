@@ -22,7 +22,8 @@ public class Cliente implements Comparable<Cliente> {
 		super();
 	}
 
-	public Cliente(String cliente, String conta, String nome, String cpf, String senha, Double saldo, Integer idConta, Integer idAgencia) {
+	public Cliente(String cliente, String conta, String nome, String cpf, String senha, Double saldo, Integer idConta,
+			Integer idAgencia) {
 		super();
 		this.cliente = cliente;
 		this.conta = conta;
@@ -83,5 +84,5 @@ public class Cliente implements Comparable<Cliente> {
 	public String toString() {
 		return "Cliente [Nome: " + nome + ", CPF: " + cpf + ", Agência: " + idAgencia + "]";
 	}
-	
+
 }

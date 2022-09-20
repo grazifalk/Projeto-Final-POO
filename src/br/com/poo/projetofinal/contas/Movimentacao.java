@@ -35,10 +35,9 @@ public class Movimentacao {
 		return valor;
 	}
 
-	@Override // sobrescrevendo o metodo antigo
+	@Override
 	public String toString() {
 		String dataFormatada = DataUtil.converterDateParaDataEHora(this.getData());
 		return this.getDescricao() + " - " + dataFormatada + " - R$ " + this.getValor();
-		// descricao - data e hora - valor
 	}
 }

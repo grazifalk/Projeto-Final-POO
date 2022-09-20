@@ -87,5 +87,5 @@ public abstract class Funcionario implements Comparable<Funcionario> {
 	public String relatorios() {
 		return "Nome: " + this.nome + "\t CPF: " + this.cpf + "\tAgencia: " + this.idAgencia;
 	}
-	
+
 }

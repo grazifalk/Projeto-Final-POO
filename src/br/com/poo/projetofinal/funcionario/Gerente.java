@@ -9,7 +9,7 @@ import java.util.TreeMap;
 import br.com.poo.projetofinal.pessoas.Cliente;
 
 public class Gerente extends Funcionario {
-	
+
 	List<Cliente> clientes = new ArrayList<>();
 
 	public static Map<String, Gerente> mapaGerentes = new HashMap<>();
