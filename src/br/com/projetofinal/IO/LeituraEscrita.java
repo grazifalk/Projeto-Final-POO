@@ -62,7 +62,7 @@ public class LeituraEscrita {
 					Conta.mapaContas.put(dados[2], cc);
 				} else if (dados[0].equalsIgnoreCase(ETipoPessoa.CLIENTE.getTipoPessoa())) {
 					Cliente cliente = new Cliente(dados[0], dados[1], dados[2], dados[3], dados[4],
-							Double.parseDouble(dados[5]));
+							Double.parseDouble(dados[5]), Integer.parseInt(dados[6]), Integer.parseInt(dados[7]));
 					Cliente.mapaClientes.put(dados[3], cliente);
 				}
 
@@ -181,26 +181,30 @@ public class LeituraEscrita {
 
 	}
 
-//	public static void relatorioGerente(Conta conta, double Valor) throws IOException {
-//
-//	    String path = conta.getNome() + "_relatorio_gerente";
-//	    try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));) {
-//	    	String linha = "********** Relatório Gerente **********";
-//		    buffWrite.append(linha + "\n");
-//		    
-//		    linha = "Agencia: " + conta.getIdAgencia();
-//		    buffWrite.append(linha + "\n");
-//		    
-//		    linha = "********** Fim do Relatório **********";
-//		    buffWrite.append(linha + "\n");
-//		    
-//		    buffWrite.close();
-//	    } catch (IOException e) {
-//		      e.printStackTrace();
-//		    } catch (Exception e) {
-//		      e.printStackTrace();
-//		    }
-//	    }
+	public static int escritorContaAgencia(String path, Integer idAgencia) throws IOException {
+		BufferedReader buffRead = new BufferedReader(new FileReader(PATH_BASICO + path + EXTENSAO));
+			String linha = "";
+			int cont = 0;
+
+			while (true) {
+				linha = buffRead.readLine();
+				if (linha != null) {
+					String[] dados = linha.split(";");
+					if (dados[0].equalsIgnoreCase(ETipoPessoa.CLIENTE.getTipoPessoa())) {
+						if (Integer.parseInt(dados[7]) == idAgencia) {
+							cont++;
+						}
+						
+					} else {
+						break;
+					}
+				}
+
+			}
+			buffRead.close();
+			return cont;
+		}
+	
 
 	public static void extratoSaldo(Conta conta, double Valor) throws IOException {
 

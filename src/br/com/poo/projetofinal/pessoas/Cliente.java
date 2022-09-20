@@ -8,10 +8,12 @@ public class Cliente implements Comparable<Cliente> {
 
 	String cliente;
 	String conta;
-	public String nome;
-	public String cpf;
-	public String senha;
+	protected String nome;
+	protected String cpf;
+	private String senha;
 	private Double saldo;
+	protected Integer idConta;
+	protected Integer idAgencia;
 
 	public static Map<String, Cliente> mapaClientes = new HashMap<>();
 	public static TreeMap<String, Cliente> OrdenaClientes = new TreeMap<>();
@@ -20,7 +22,7 @@ public class Cliente implements Comparable<Cliente> {
 		super();
 	}
 
-	public Cliente(String cliente, String conta, String nome, String cpf, String senha, Double saldo) {
+	public Cliente(String cliente, String conta, String nome, String cpf, String senha, Double saldo, Integer idConta, Integer idAgencia) {
 		super();
 		this.cliente = cliente;
 		this.conta = conta;
@@ -28,6 +30,8 @@ public class Cliente implements Comparable<Cliente> {
 		this.cpf = cpf;
 		this.senha = senha;
 		this.saldo = saldo;
+		this.idConta = idConta;
+		this.idAgencia = idAgencia;
 	}
 
 	public String getCliente() {
@@ -75,4 +79,9 @@ public class Cliente implements Comparable<Cliente> {
 		return 0;
 	}
 
+	@Override
+	public String toString() {
+		return "Cliente [Nome: " + nome + ", CPF: " + cpf + ", Agência: " + idAgencia + "]";
+	}
+	
 }

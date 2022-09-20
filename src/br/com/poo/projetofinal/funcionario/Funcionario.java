@@ -10,7 +10,7 @@ public abstract class Funcionario implements Comparable<Funcionario> {
 	protected String nome;
 	protected String cpf;
 	protected String senha;
-	protected Integer agencia;
+	protected Integer idAgencia;
 	protected Integer numeroConta;
 	protected Double salario;
 
@@ -20,13 +20,13 @@ public abstract class Funcionario implements Comparable<Funcionario> {
 	public Funcionario() {
 	}
 
-	public Funcionario(String eTipoFuncionario, String nome, String cpf, String senha, Integer agencia,
+	public Funcionario(String eTipoFuncionario, String nome, String cpf, String senha, Integer idAgencia,
 			Integer numeroConta, Double salario) {
 		ETipoFuncionario = eTipoFuncionario;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.senha = senha;
-		this.agencia = agencia;
+		this.idAgencia = idAgencia;
 		this.numeroConta = numeroConta;
 		this.salario = salario;
 	}
@@ -56,11 +56,11 @@ public abstract class Funcionario implements Comparable<Funcionario> {
 	}
 
 	public Integer getAgencia() {
-		return agencia;
+		return idAgencia;
 	}
 
 	public void setAgencia(Integer agencia) {
-		this.agencia = agencia;
+		this.idAgencia = agencia;
 	}
 
 	public Integer getNumeroConta() {
@@ -85,6 +85,7 @@ public abstract class Funcionario implements Comparable<Funcionario> {
 	}
 
 	public String relatorios() {
-		return "Nome: " + this.nome + "\t CPF: " + this.cpf + "\tAgencia: " + this.agencia;
+		return "Nome: " + this.nome + "\t CPF: " + this.cpf + "\tAgencia: " + this.idAgencia;
 	}
+	
 }

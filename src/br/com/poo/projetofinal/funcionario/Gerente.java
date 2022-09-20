@@ -9,7 +9,7 @@ import java.util.TreeMap;
 import br.com.poo.projetofinal.pessoas.Cliente;
 
 public class Gerente extends Funcionario {
-	private int idAgencia;
+	protected Integer idAgencia;
 
 	List<Cliente> clientes = new ArrayList<>();
 
@@ -21,16 +21,16 @@ public class Gerente extends Funcionario {
 	}
 
 	public Gerente(String eTipoFuncionario, String nome, String cpf, String senha, Integer agencia, Integer numeroConta,
-			Double salario, int idAgencia) {
+			Double salario, Integer idAgencia) {
 		super(eTipoFuncionario, nome, cpf, senha, agencia, numeroConta, salario);
 		this.idAgencia = idAgencia;
 	}
 
-	public int getIdAgencia() {
-		return this.idAgencia;
+	public Integer getIdAgencia() {
+		return idAgencia;
 	}
 
-	public void setIdAgencia(int idAgencia) {
+	public void setIdAgencia(Integer idAgencia) {
 		this.idAgencia = idAgencia;
 	}
 
