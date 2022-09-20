@@ -15,3 +15,7 @@ Sistema bancário com login de clientes e funcionários, com foco principal nas 
 - [Priscila Almeida](https://github.com/Priscila-M)
 - [Rafael Gomes](https://github.com/rafagomes10)
 - [Yuri Ramos](https://github.com/Yuri-Ramos)
+
+<div>
+<img align="middle" alt="g4bank-app" style="border-radius:50px;" src="https://media.discordapp.net/attachments/489854983022575617/1021516923369955338/2.PNG?width=829&height=467"></a>
+</div>
