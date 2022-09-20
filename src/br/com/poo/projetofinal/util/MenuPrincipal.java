@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import br.com.poo.projetofinal.contas.Conta;
+import br.com.poo.projetofinal.enums.ETipoConta;
 import br.com.poo.projetofinal.enums.ETipoFuncionario;
 import br.com.poo.projetofinal.funcionario.Funcionario;
 import br.com.poo.projetofinal.funcionario.Gerente;
@@ -30,7 +31,8 @@ public class MenuPrincipal {
 			System.out.println("[3]\tTransferência");
 			System.out.println("[4]\tSaldo");
 			System.out.println("[5]\tExtrato");
-			System.out.println("[6]\tSair");
+			System.out.println("[6]\tSimulação de Rendimentos");
+			System.out.println("[7]\tSair");
 			// principal.imprimeLinhaHorizontal();
 			System.out.print("Digite a opção desejada: ");
 			String opcaoOperacao = Principal.sc.next();
@@ -66,12 +68,33 @@ public class MenuPrincipal {
 				System.out.printf("Seu saldo é: R$%.2f", conta.getSaldo());
 				System.out.println();
 				System.out.println();
-				// LeituraEscrita.extratoSaldo(conta, inputValor);
+				double valor = conta.getSaldo();
+				LeituraEscrita.extratoSaldo(conta, valor);
 				break;
 			case "5":
 				conta.imprimirExtrato();
 				break;
 			case "6":
+				if(conta.getTipoConta().equalsIgnoreCase(ETipoConta.POUPANCA.getTipoConta())) {
+					System.out.println("Informe a quantia em dinheiro: ");
+					Double quantia = sc.nextDouble();
+					System.out.println("Informe quantos dias de rendimento: ");
+					int dias = sc.nextInt();
+					Double rendimento = dias * 0.5;
+					Double total = quantia + rendimento;
+					System.out.printf("O rendimento de " + dias + " dias é: R$%.2f ", rendimento , "!");
+					System.out.println();
+					System.out.printf("O rendimento total é: R$%.2f ", total, "!");
+					System.out.println();
+					Principal.imprimeLinhaHorizontal();
+					LeituraEscrita.relatorioPoupanca(conta, quantia, rendimento, total, dias);
+				}else {
+					System.out.println("A sua conta não possui rendimento!");
+					System.out.println();
+					Principal.imprimeLinhaHorizontal();
+				}
+				break;	
+			case "7":
 				principal.menuInterativo();
 				break;
 			default:

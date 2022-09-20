@@ -35,7 +35,7 @@ public class LeituraEscrita {
 				String[] dados = linha.split(";");
 				if (dados[0].equalsIgnoreCase(ETipoFuncionario.GERENTE.getTipoFuncionario())) {
 					Gerente gerente = new Gerente(dados[0], dados[1], dados[2], dados[3], Integer.parseInt(dados[4]),
-							Integer.parseInt(dados[5]), Double.parseDouble(dados[6]), Integer.parseInt(dados[7]));
+							Integer.parseInt(dados[5]), Double.parseDouble(dados[6]));
 					Funcionario.mapaFuncionarios.put(dados[2], gerente);
 					Funcionario.OrdenaFuncionarios.put(dados[0], gerente);
 
@@ -191,7 +191,7 @@ public class LeituraEscrita {
 				if (linha != null) {
 					String[] dados = linha.split(";");
 					if (dados[0].equalsIgnoreCase(ETipoPessoa.CLIENTE.getTipoPessoa())) {
-						if (Integer.parseInt(dados[7]) == idAgencia) {
+						if (Integer.parseInt(dados[4]) == idAgencia) {
 							cont++;
 						}
 						
@@ -206,7 +206,7 @@ public class LeituraEscrita {
 		}
 	
 
-	public static void extratoSaldo(Conta conta, double Valor) throws IOException {
+	public static void extratoSaldo(Conta conta, double valor) throws IOException {
 
 		String path = conta.getNome() + "_Extrato_Saldo";
 		try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));) {
@@ -223,13 +223,58 @@ public class LeituraEscrita {
 			linha = "Numero da Conta: " + conta.getNumeroConta();
 			buffWrite.append(linha + "\n");
 
-			linha = "Valor: R$ " + Valor;
+			linha = "Valor: R$ " + valor;
 			buffWrite.append(linha + "\n");
 
 			linha = DataUtil.data();
 			buffWrite.append(linha + "\n");
 
-			linha = "********** Extrato Saldo **********";
+			linha = "********** Fim do Extrato Saldo **********";
+			buffWrite.append(linha + "\n");
+
+			buffWrite.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	public static void relatorioPoupanca(Conta conta, Double quantia, Double rendimento, Double total, int dias) throws IOException {
+
+		String path = conta.getNome() + "_Relatorio_Poupanca";
+		try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));) {
+
+			String linha = "********** Relatório de Poupança **********";
+			buffWrite.append(linha + "\n");
+
+			linha = "Nome: " + conta.getNome();
+			buffWrite.append(linha + "\n");
+
+			linha = "Agencia: " + conta.getIdAgencia();
+			buffWrite.append(linha + "\n");
+
+			linha = "Numero da Conta: " + conta.getNumeroConta();
+			buffWrite.append(linha + "\n");
+			
+			linha = "Valor aplicado: R$ " + quantia;
+			buffWrite.append(linha + "\n");
+			
+			linha = "Número de dias: " + dias;
+			buffWrite.append(linha + "\n");
+
+			linha = "Valor do rendimento: R$ " + rendimento;
+			buffWrite.append(linha + "\n");
+			
+			linha = "Valor total: R$ " + total;
+			buffWrite.append(linha + "\n");
+
+			linha = DataUtil.data();
+			buffWrite.append(linha + "\n");
+
+			linha = "********** Fim do Relatório **********";
 			buffWrite.append(linha + "\n");
 
 			buffWrite.close();

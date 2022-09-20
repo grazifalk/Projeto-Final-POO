@@ -18,10 +18,10 @@ poupanca;Eduarda Lara Ferreira;861.973.433-47;123861;800.00;77777;444
 poupanca;Marcelo Diogo das Neves;723.098.739-34;123723;900.00;88888;555
 poupanca;Sophia Luana da Costa;450.579.610-80;658942;920.00;99999;222
 poupanca;Matheus Kevin Ramos;144.233.363-25;123555;220.00;10105;333
-gerente;Lorena Sophia Monteiro;288.100.031-28;123288;222;10540;5300.00;222
-gerente;Martin Thiago de Paula;128.366.508-50;123128;333;20720;5800.00;333
-gerente;Leandro Marcelo Ramos;295.654.788-75;123295;444;30108;4320.00;444
-gerente;Evelyn Cecília Barros;372.270.949-01;123372;555;40320;6200.00;555
+gerente;Lorena Sophia Monteiro;288.100.031-28;123288;222;10540;5300.00
+gerente;Martin Thiago de Paula;128.366.508-50;123128;333;20720;5800.00
+gerente;Leandro Marcelo Ramos;295.654.788-75;123295;444;30108;4320.00
+gerente;Evelyn Cecília Barros;372.270.949-01;123372;555;40320;6200.00
 diretor;Marcelo Ramos Santos;526.278.981-16;123526;222;32088;22000.00
 diretor;Carla Esteves Martins;320.603.363-25;123320;333;52920;27000.00
 presidente;Danilo Marques Souza;615.825.363-41;123615;444;48070;48000.00
