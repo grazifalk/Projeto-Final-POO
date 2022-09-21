@@ -10,6 +10,7 @@ import java.text.DecimalFormat;
 //import java.util.Comparator;
 //import java.util.List;
 //import java.util.TreeMap;
+import java.util.List;
 
 import br.com.poo.projetofinal.contas.Conta;
 import br.com.poo.projetofinal.contas.ContaCorrente;
@@ -321,20 +322,18 @@ public class LeituraEscrita {
 		}
 
 	}
-
-//	public static void relatorioDiretor(Funcionario diretor, Cliente OrdenaClientes) throws IOException {
-//
-//		TreeMap<String, Cliente> listaCl = Cliente.OrdenaClientes;
-//		String path = diretor.getNome() + "_Relatorio_Clientes";
+	
+//	public static void relatorioGerente(Funcionario gerente, Cliente lista) throws IOException {
+//		String path = gerente.getNome() + "_Relatorio_Gerente";
 //		try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));) {
 //
-//			String linha = "********** Relatório de Clientes **********";
-//			buffWrite.append(linha + "\n");
-//
-//			linha = "Nome: " + diretor.getNome();
+//			String linha = "********** Relatório do Gerente **********";
 //			buffWrite.append(linha + "\n");
 //			
-//			linha = listaCl.get(OrdenaClientes);
+//			linha = "Nome: " + gerente.getNome();
+//			buffWrite.append(linha + "\n");
+//
+//			linha = "O total de contas na agência " + gerente.getIdAgencia();
 //			buffWrite.append(linha + "\n");
 //
 //			linha = DataUtil.data();
@@ -349,8 +348,39 @@ public class LeituraEscrita {
 //			e.printStackTrace();
 //		} catch (Exception e) {
 //			e.printStackTrace();
-//		} 
+//		}
 //
 //	}
+
+	public static void relatorioDiretor(Funcionario diretor, List<Cliente> lista) throws IOException {
+
+		String path = diretor.getNome() + "_Relatorio_Clientes";
+		try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));) {
+
+			String linha = "********** Relatório de Clientes **********";
+			buffWrite.append(linha + "\n");
+
+			linha = "Nome: " + diretor.getNome();
+			buffWrite.append(linha + "\n");
+			
+			for (int i = 0; i < lista.size(); i++){  
+			buffWrite.append(lista.get(i) + "\n");
+			}
+
+			linha = DataUtil.data();
+			buffWrite.append(linha + "\n");
+
+			linha = "********** Fim do Relatório **********";
+			buffWrite.append(linha + "\n");
+
+			buffWrite.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+
+	}
 
 }

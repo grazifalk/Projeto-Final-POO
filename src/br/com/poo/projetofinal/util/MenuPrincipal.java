@@ -164,9 +164,8 @@ public class MenuPrincipal {
 						listaCliente.get(i);
 
 						System.out.println(listaCliente.get(i));
-//                           Cliente lista = listaCliente.get(i);
-//                           LeituraEscrita.relatorioDiretor(funcionario, lista);
 					}
+					LeituraEscrita.relatorioDiretor(funcionario, listaCliente);
 					menuFuncionario(funcionario, conta);
 					break;
 				case "3":
