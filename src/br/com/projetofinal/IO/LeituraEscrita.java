@@ -151,15 +151,21 @@ public class LeituraEscrita {
 
 	}
 
-	public static void comprovanteTransferencia(Conta conta, double Valor) throws IOException {
+	public static void comprovanteTransferencia(Conta conta, double Valor, Conta contaDestino) throws IOException {
 		DecimalFormat df = new DecimalFormat("0.00");
 		String path = conta.getNome() + "_Comprovante_Transferencia";
 		try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));) {
 
 			String linha = "********** Transferência **********";
 			buffWrite.append(linha + "\n");
+			
+			linha = "********** Remetente: **********";
+			buffWrite.append(linha + "\n");
 
 			linha = "Nome: " + conta.getNome();
+			buffWrite.append(linha + "\n");
+			
+			linha = "CPF: " + conta.getCpf();
 			buffWrite.append(linha + "\n");
 
 			linha = "Agencia: " + conta.getIdAgencia();
@@ -167,13 +173,31 @@ public class LeituraEscrita {
 
 			linha = "Numero da Conta: " + conta.getNumeroConta();
 			buffWrite.append(linha + "\n");
+			
+			linha = "********** Destinatário: **********";
+			buffWrite.append(linha + "\n");
+			
+			linha = "Nome: " + contaDestino.getNome();
+			buffWrite.append(linha + "\n");
+			
+			linha = "CPF: " + contaDestino.getCpf();
+			buffWrite.append(linha + "\n");
+			
+			linha = "Agencia: " + contaDestino.getIdAgencia();
+			buffWrite.append(linha + "\n");
 
+			linha = "Numero da Conta: " + contaDestino.getNumeroConta();
+			buffWrite.append(linha + "\n");
+
+			linha = "***********************************";
+			buffWrite.append(linha + "\n");
+			
 			linha = "Valor: R$ " + df.format(Valor);
 			buffWrite.append(linha + "\n");
 
-			linha = DataUtil.data();
+			linha = "Transferência realizada em: " + DataUtil.data();
 			buffWrite.append(linha + "\n");
-
+			
 			linha = "********** Fim da Transferência **********";
 			buffWrite.append(linha + "\n");
 
@@ -322,35 +346,38 @@ public class LeituraEscrita {
 		}
 
 	}
+//	
+//	System.out.println("\n O total de contas na agência " + funcionario.getIdAgencia() + " são: "
+//			+ LeituraEscrita.escritorContaAgencia("dados", funcionario.getIdAgencia()));
 	
-//	public static void relatorioGerente(Funcionario gerente, Cliente lista) throws IOException {
-//		String path = gerente.getNome() + "_Relatorio_Gerente";
-//		try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));) {
-//
-//			String linha = "********** Relatório do Gerente **********";
-//			buffWrite.append(linha + "\n");
-//			
-//			linha = "Nome: " + gerente.getNome();
-//			buffWrite.append(linha + "\n");
-//
-//			linha = "O total de contas na agência " + gerente.getIdAgencia();
-//			buffWrite.append(linha + "\n");
-//
-//			linha = DataUtil.data();
-//			buffWrite.append(linha + "\n");
-//
-//			linha = "********** Fim do Relatório **********";
-//			buffWrite.append(linha + "\n");
-//
-//			buffWrite.close();
-//
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//
-//	}
+	public static void relatorioGerente(Funcionario gerente) throws IOException {
+		String path = gerente.getNome() + "_Relatorio_Gerente";
+		try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));) {
+
+			String linha = "********** Relatório do Gerente **********";
+			buffWrite.append(linha + "\n");
+			
+			linha = "Nome: " + gerente.getNome();
+			buffWrite.append(linha + "\n");
+
+			linha = "Total de contas na agência " + gerente.getIdAgencia() + ": " + escritorContaAgencia("dados", gerente.getIdAgencia()) + " contas";
+			buffWrite.append(linha + "\n");
+
+			linha = DataUtil.data();
+			buffWrite.append(linha + "\n");
+
+			linha = "********** Fim do Relatório **********";
+			buffWrite.append(linha + "\n");
+
+			buffWrite.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 
 	public static void relatorioDiretor(Funcionario diretor, List<Cliente> lista) throws IOException {
 

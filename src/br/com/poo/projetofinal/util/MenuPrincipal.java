@@ -59,7 +59,7 @@ public class MenuPrincipal {
 				inputValor = Double.parseDouble(Principal.sc.next());
 				Conta contaDestino = (Conta) Conta.mapaContas.get(cpf);
 				conta.transferir(inputValor, contaDestino);
-				LeituraEscrita.comprovanteTransferencia(conta, inputValor);
+				LeituraEscrita.comprovanteTransferencia(conta, inputValor, contaDestino);
 				break;
 			case "4":
 				System.out.println();
@@ -128,6 +128,7 @@ public class MenuPrincipal {
 					Principal.imprimeLinhaHorizontal();
 					System.out.println("\n O total de contas na agência " + funcionario.getIdAgencia() + " são: "
 							+ LeituraEscrita.escritorContaAgencia("dados", funcionario.getIdAgencia()));
+					LeituraEscrita.relatorioGerente(funcionario);
 					menuFuncionario(funcionario, conta);
 					break;
 				case "2":
