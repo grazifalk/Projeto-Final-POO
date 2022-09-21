@@ -6,10 +6,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
-//import java.util.ArrayList;
-//import java.util.Comparator;
-//import java.util.List;
-//import java.util.TreeMap;
 import java.util.List;
 
 import br.com.poo.projetofinal.contas.Conta;
@@ -158,13 +154,13 @@ public class LeituraEscrita {
 
 			String linha = "********** Transferência **********";
 			buffWrite.append(linha + "\n");
-			
+
 			linha = "********** Remetente: **********";
 			buffWrite.append(linha + "\n");
 
 			linha = "Nome: " + conta.getNome();
 			buffWrite.append(linha + "\n");
-			
+
 			linha = "CPF: " + conta.getCpf();
 			buffWrite.append(linha + "\n");
 
@@ -173,16 +169,16 @@ public class LeituraEscrita {
 
 			linha = "Numero da Conta: " + conta.getNumeroConta();
 			buffWrite.append(linha + "\n");
-			
+
 			linha = "********** Destinatário: **********";
 			buffWrite.append(linha + "\n");
-			
+
 			linha = "Nome: " + contaDestino.getNome();
 			buffWrite.append(linha + "\n");
-			
+
 			linha = "CPF: " + contaDestino.getCpf();
 			buffWrite.append(linha + "\n");
-			
+
 			linha = "Agencia: " + contaDestino.getIdAgencia();
 			buffWrite.append(linha + "\n");
 
@@ -191,13 +187,13 @@ public class LeituraEscrita {
 
 			linha = "***********************************";
 			buffWrite.append(linha + "\n");
-			
+
 			linha = "Valor: R$ " + df.format(Valor);
 			buffWrite.append(linha + "\n");
 
 			linha = "Transferência realizada em: " + DataUtil.data();
 			buffWrite.append(linha + "\n");
-			
+
 			linha = "********** Fim da Transferência **********";
 			buffWrite.append(linha + "\n");
 
@@ -349,18 +345,19 @@ public class LeituraEscrita {
 //	
 //	System.out.println("\n O total de contas na agência " + funcionario.getIdAgencia() + " são: "
 //			+ LeituraEscrita.escritorContaAgencia("dados", funcionario.getIdAgencia()));
-	
+
 	public static void relatorioGerente(Funcionario gerente) throws IOException {
 		String path = gerente.getNome() + "_Relatorio_Gerente";
 		try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));) {
 
 			String linha = "********** Relatório do Gerente **********";
 			buffWrite.append(linha + "\n");
-			
+
 			linha = "Nome: " + gerente.getNome();
 			buffWrite.append(linha + "\n");
 
-			linha = "Total de contas na agência " + gerente.getIdAgencia() + ": " + escritorContaAgencia("dados", gerente.getIdAgencia()) + " contas";
+			linha = "Total de contas na agência " + gerente.getIdAgencia() + ": "
+					+ escritorContaAgencia("dados", gerente.getIdAgencia()) + " contas";
 			buffWrite.append(linha + "\n");
 
 			linha = DataUtil.data();
@@ -389,9 +386,9 @@ public class LeituraEscrita {
 
 			linha = "Nome: " + diretor.getNome();
 			buffWrite.append(linha + "\n");
-			
-			for (int i = 0; i < lista.size(); i++){  
-			buffWrite.append(lista.get(i) + "\n");
+
+			for (int i = 0; i < lista.size(); i++) {
+				buffWrite.append(lista.get(i) + "\n");
 			}
 
 			linha = DataUtil.data();
@@ -406,7 +403,7 @@ public class LeituraEscrita {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 
+		}
 
 	}
 

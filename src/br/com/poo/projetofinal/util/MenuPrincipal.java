@@ -24,47 +24,47 @@ public class MenuPrincipal {
 		Scanner sc = new Scanner(System.in);
 
 		try {
+			Principal.imprimeLinhaHorizontal();
 			System.out.println("[1]\tSaque");
-			System.out.println("[2]\tDeposito");
+			System.out.println("[2]\tDepósito");
 			System.out.println("[3]\tTransferência");
 			System.out.println("[4]\tSaldo");
 			System.out.println("[5]\tExtrato");
 			System.out.println("[6]\tSimulação de Rendimentos");
 			System.out.println("[7]\tSair");
-			// principal.imprimeLinhaHorizontal();
+			Principal.imprimeLinhaHorizontal();
 			System.out.print("Digite a opção desejada: ");
 			String opcaoOperacao = Principal.sc.next();
+			Principal.imprimeLinhaHorizontal();
 			Double inputValor;
 
 			switch (opcaoOperacao) {
 			case "1":
-				Principal.imprimeLinhaHorizontal();
 				System.out.print("Digite o valor que deseja sacar: ");
 				inputValor = Double.parseDouble(Principal.sc.next());
+				Principal.imprimeLinhaHorizontal();
 				conta.sacar(inputValor);
 				LeituraEscrita.comprovanteSaque(conta, inputValor);
 				break;
 			case "2":
-				Principal.imprimeLinhaHorizontal();
 				System.out.print("Digite o valor que deseja depositar: ");
 				inputValor = Double.parseDouble(Principal.sc.next());
+				Principal.imprimeLinhaHorizontal();
 				conta.depositar(inputValor);
 				LeituraEscrita.comprovanteDeposito(conta, inputValor);
 				break;
 			case "3":
-				Principal.imprimeLinhaHorizontal();
 				System.out.println("Informe para qual CPF deseja realizar a transferência: ");
 				String cpf = sc.nextLine();
 				System.out.print("Digite o valor que deseja transferir: ");
 				inputValor = Double.parseDouble(Principal.sc.next());
+				Principal.imprimeLinhaHorizontal();
 				Conta contaDestino = (Conta) Conta.mapaContas.get(cpf);
 				conta.transferir(inputValor, contaDestino);
 				LeituraEscrita.comprovanteTransferencia(conta, inputValor, contaDestino);
 				break;
 			case "4":
-				System.out.println();
 				System.out.printf("Seu saldo é: R$%.2f", conta.getSaldo());
-				System.out.println();
 				System.out.println();
 				double valor = conta.getSaldo();
 				LeituraEscrita.extratoSaldo(conta, valor);
@@ -78,26 +78,25 @@ public class MenuPrincipal {
 					Double quantia = sc.nextDouble();
 					System.out.println("Informe quantos dias de rendimento: ");
 					int dias = sc.nextInt();
+					Principal.imprimeLinhaHorizontal();
 					Double rendimento = dias * 0.5;
 					Double total = quantia + rendimento;
 					System.out.printf("O rendimento de " + dias + " dias é: R$%.2f ", rendimento, "!");
 					System.out.println();
 					System.out.printf("O rendimento total é: R$%.2f ", total, "!");
 					System.out.println();
-					Principal.imprimeLinhaHorizontal();
 					LeituraEscrita.relatorioPoupanca(conta, quantia, rendimento, total, dias);
 				} else {
 					System.out.println("A sua conta não possui rendimento!");
-					System.out.println();
-					Principal.imprimeLinhaHorizontal();
 				}
 				break;
 			case "7":
 				principal.menuInterativo();
 				break;
 			default:
+				Principal.imprimeLinhaHorizontal();
 				System.out.println("Opção inválida!");
-
+				Principal.imprimeLinhaHorizontal();
 				sc.close();
 			}
 
@@ -117,15 +116,14 @@ public class MenuPrincipal {
 		try {
 			if (funcionario.getETipoFuncionario().equals("gerente")) {
 				Principal.imprimeLinhaHorizontal();
-				System.out.println("\t[1]- Relatório Gerente");
-				System.out.println("\t[2]- Sair");
+				System.out.println("[1]- Relatório Gerente");
+				System.out.println("[2]- Sair");
 				Principal.imprimeLinhaHorizontal();
 				System.out.print("\nDigite a opção desejada: ");
 				String opOperacao = sc.next();
+				Principal.imprimeLinhaHorizontal();
 				switch (opOperacao) {
 				case "1":
-					limTela();
-					Principal.imprimeLinhaHorizontal();
 					System.out.println("\n O total de contas na agência " + funcionario.getIdAgencia() + " são: "
 							+ LeituraEscrita.escritorContaAgencia("dados", funcionario.getIdAgencia()));
 					LeituraEscrita.relatorioGerente(funcionario);
@@ -145,22 +143,23 @@ public class MenuPrincipal {
 				}
 			} else if (funcionario.getETipoFuncionario().equals("diretor")) {
 				Principal.imprimeLinhaHorizontal();
-				System.out.println("\t[1]- Relatório Gerente");
-				System.out.println("\t[2]- Relatório  Diretor");
-				System.out.println("\t[3]- Sair");
+				System.out.println("[1]- Relatório Gerente");
+				System.out.println("[2]- Relatório Diretor");
+				System.out.println("[3]- Sair");
 				Principal.imprimeLinhaHorizontal();
 				System.out.print("\nDigite a opção desejada: ");
 				String opOperacao = sc.next();
+				Principal.imprimeLinhaHorizontal();
 				switch (opOperacao) {
 				case "1":
 					System.out.println("Em manutenção");
 					menuFuncionario(funcionario, conta);
 					break;
 				case "2":
-					limTela();
 					System.out.println("Contas cadastradas no banco: ");
 					List<Cliente> listaCliente = new ArrayList<Cliente>(Cliente.mapaClientes.values());
 					listaCliente.sort(Comparator.comparing(Cliente::getNome));
+					Principal.imprimeLinhaHorizontal();
 					for (int i = 0; i < listaCliente.size(); i++) {
 						listaCliente.get(i);
 
@@ -182,23 +181,24 @@ public class MenuPrincipal {
 				}
 			} else if (funcionario.getETipoFuncionario().equals("presidente")) {
 				Principal.imprimeLinhaHorizontal();
-				System.out.println("\t[1]- Relatório Gerente");
-				System.out.println("\t[2]- Relatório  Diretor");
-				System.out.println("\t[3]- Relatório Presidente");
-				System.out.println("\t[4]- Sair");
+				System.out.println("[1]- Relatório Gerente");
+				System.out.println("[2]- Relatório  Diretor");
+				System.out.println("[3]- Relatório Presidente");
+				System.out.println("[4]- Sair");
 				Principal.imprimeLinhaHorizontal();
 				System.out.print("\nDigite a opção desejada: ");
 				String opOperacao = sc.next();
+				Principal.imprimeLinhaHorizontal();
 				switch (opOperacao) {
 				case "1":
 					System.out.println("Em manutenção");
 					menuFuncionario(funcionario, conta);
 					break;
 				case "2":
-					limTela();
 					System.out.println("Contas cadastradas no banco: ");
 					List<Cliente> listaCliente = new ArrayList<Cliente>(Cliente.mapaClientes.values());
 					listaCliente.sort(Comparator.comparing(Cliente::getNome));
+					Principal.imprimeLinhaHorizontal();
 					for (int i = 0; i < listaCliente.size(); i++) {
 						listaCliente.get(i);
 
@@ -207,12 +207,10 @@ public class MenuPrincipal {
 					menuFuncionario(funcionario, conta);
 					break;
 				case "3":
-					limTela();
 					double total = 0;
 					for (Conta c : Conta.mapaContas.values()) {
 						total = total + c.getSaldo();
 					}
-
 					System.out.printf("Capital total armazenado no banco: R$ %.2f", total);
 					System.out.println();
 					LeituraEscrita.relatorioPresidente(funcionario, total);
@@ -242,21 +240,20 @@ public class MenuPrincipal {
 	public static void apresentacao() {
 
 		try {
-			System.out.println("************************************");
+			System.out.println("**************************************************");
 			Thread.sleep(200);
-			System.out.println("***********   Bem Vindo   **********");
+			System.out.println("******************  Bem Vindo   ******************");
 			Thread.sleep(200);
-			System.out.println("***********    G4 Bank    **********");
+			System.out.println("******************   G4 Bank    ******************");
 			Thread.sleep(200);
-			System.out.println("************************************");
+			System.out.println("**************************************************");
 			Thread.sleep(200);
-			System.out.println("****  Iluminando o Seu Futuro!  ****");
+			System.out.println("***********  Iluminando o Seu Futuro!  ***********");
 			Thread.sleep(200);
-			System.out.println("************************************");
+			System.out.println("**************************************************");
 			Thread.sleep(1000);
 			limTela();
-		} catch (Exception e) {//
-
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 

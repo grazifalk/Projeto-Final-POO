@@ -1,11 +1,13 @@
 package br.com.poo.projetofinal.contas;
 
 import java.util.Date;
+import java.text.DecimalFormat;
 
 import br.com.poo.projetofinal.enums.ETipoMovimentacao;
 import br.com.poo.projetofinal.util.DataUtil;
 
 public class Movimentacao {
+	DecimalFormat df = new DecimalFormat("0.00");
 	private String descricao;
 	private Date data;
 	private Double valor;
@@ -15,7 +17,7 @@ public class Movimentacao {
 		this.data = new Date();
 		this.valor = valor;
 	}
-	
+
 	public Movimentacao(ETipoMovimentacao transferencia, Double valorSacado, Conta contaDestino) {
 	}
 
@@ -38,7 +40,7 @@ public class Movimentacao {
 	@Override
 	public String toString() {
 		String dataFormatada = DataUtil.converterDateParaDataEHora(this.getData());
-		return this.getDescricao() + " - " + dataFormatada + " - R$ " + this.getValor();
+		return this.getDescricao() + df.format(valor) + " - " + dataFormatada + " - R$ " + df.format(this.getValor());
 	}
-		
+
 }

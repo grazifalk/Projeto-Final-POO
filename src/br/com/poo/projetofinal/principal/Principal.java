@@ -25,6 +25,7 @@ public class Principal {
 		} while (manterLoop == true);
 	}
 
+	@SuppressWarnings("null")
 	public void menuInterativo() {
 		try {
 			imprimeLinhaHorizontal();
@@ -49,9 +50,16 @@ public class Principal {
 			}
 
 			if (funcionario == null) {
-				subMenu(cliente, conta);
+				if ((cliente.getSenha().equalsIgnoreCase(inputSenha))
+						&& (cliente.getCpf().equalsIgnoreCase(inputCpf))) {
+					subMenu(cliente, conta);
+				}
 			} else {
-				subMenu(funcionario, conta);
+				if ((funcionario.getSenha().equalsIgnoreCase(inputSenha))
+						&& (funcionario.getCpf().equalsIgnoreCase(inputCpf))) {
+					subMenu(funcionario, conta);
+				}
+
 			}
 
 			imprimeLinhaHorizontal();
@@ -59,6 +67,8 @@ public class Principal {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
+			System.out.println("CPF e/ou Senha incorreto(s)\n");
+			System.out.println("Tente novamente!!!");
 			menuInterativo();
 		}
 		sc.close();
@@ -69,8 +79,6 @@ public class Principal {
 		try {
 			imprimeLinhaHorizontal();
 			System.out.println("Bem-vindo(a) ao seu Banco, " + funcionario.getNome() + "!\n");
-			imprimeLinhaHorizontal();
-			System.out.println("Digite o número correspondente a operação desejada:");
 			MenuPrincipal.menuFuncionario(funcionario, conta);
 
 		} catch (Exception e) {
@@ -91,8 +99,6 @@ public class Principal {
 		try {
 			imprimeLinhaHorizontal();
 			System.out.println("Bem-vindo(a) ao seu Banco, " + cliente.getNome() + "!\n");
-			imprimeLinhaHorizontal();
-			System.out.println("Digite o número correspondente a operação desejada:");
 			MenuPrincipal.menuCliente(cliente, conta);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

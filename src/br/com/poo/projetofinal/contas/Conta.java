@@ -3,6 +3,8 @@ package br.com.poo.projetofinal.contas;
 import java.util.HashMap;
 import java.util.Map;
 
+import br.com.poo.projetofinal.principal.Principal;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
@@ -85,6 +87,7 @@ public abstract class Conta {
 			throw new InputMismatchException("Saque indisponível, valor insuficiente!\n");
 		} else {
 			this.saldo -= valor;
+			Principal.imprimeLinhaHorizontal();
 			System.out.println("Saque efetuado com sucesso!");
 
 		}
@@ -96,11 +99,11 @@ public abstract class Conta {
 	public void depositar(Double valor) {
 		if (valor > 0) {
 			this.saldo += valor;
+			Principal.imprimeLinhaHorizontal();
 			System.out.println("Depósito efetuado com sucesso!");
 		} else {
 			throw new InputMismatchException("Valor inválido!");
 		}
-		// extrato
 		Movimentacao movimentacao = new Movimentacao("Depósito: ", valor);
 		this.movimentacoes.add(movimentacao);
 
@@ -111,7 +114,8 @@ public abstract class Conta {
 			throw new InputMismatchException("Saque indisponível, valor insuficiente!\n");
 		} else if (valor > 0) {
 			this.saldo -= valor;
-			System.out.println("\nTransferência realizada com sucesso!\n");
+			Principal.imprimeLinhaHorizontal();
+			System.out.println("Transferência realizada com sucesso!");
 		} else {
 			throw new InputMismatchException("Valor inválido!");
 		}

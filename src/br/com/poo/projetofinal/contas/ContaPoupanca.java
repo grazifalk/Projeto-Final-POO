@@ -2,13 +2,13 @@ package br.com.poo.projetofinal.contas;
 
 import java.util.ArrayList;
 import java.util.Date;
+
 import br.com.poo.projetofinal.util.DataUtil;
 
 public class ContaPoupanca extends Conta {
 
 	public ContaPoupanca() {
 		super();
-
 	}
 
 	public ContaPoupanca(String tipoConta, String nome, String cpf, String senha, Double saldo, Integer numeroConta,
@@ -21,11 +21,11 @@ public class ContaPoupanca extends Conta {
 	public void imprimirExtrato() {
 
 		System.out.println();
-		System.out.println("************************************************");
-		System.out.println("**************  Extrato Bancario  **************");
-		System.out.println("************************************************");
+		System.out.println("******************************************************************************");
+		System.out.println("*****************************  Extrato Bancário  *****************************");
+		System.out.println("******************************************************************************");
 		System.out.println();
-		System.out.println("      gerado em : " + DataUtil.converterDateParaDataEHora(new Date()));
+		System.out.println("                    Gerado em : " + DataUtil.converterDateParaDataEHora(new Date()));
 		System.out.println();
 
 		for (Movimentacao movimentacao : this.movimentacoes) {
@@ -33,9 +33,9 @@ public class ContaPoupanca extends Conta {
 			System.out.println();
 		}
 		System.out.println();
-		System.out.println("************************************************");
-		System.out.println("************************************************");
-		System.out.println("************************************************");
+		System.out.println("******************************************************************************");
+		System.out.println("******************************************************************************");
+		System.out.println("******************************************************************************");
 		System.out.println();
 	}
 

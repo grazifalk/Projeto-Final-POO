@@ -54,7 +54,7 @@ public abstract class Funcionario implements Comparable<Funcionario> {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
+
 	public Integer getIdAgencia() {
 		return idAgencia;
 	}
@@ -78,7 +78,7 @@ public abstract class Funcionario implements Comparable<Funcionario> {
 	public Double getSalario() {
 		return salario;
 	}
-	
+
 	@Override
 	public int compareTo(Funcionario outroFuncionario) {
 		return this.nome.compareTo(outroFuncionario.getNome());
